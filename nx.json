@@ -42,6 +42,9 @@
         "style": "@emotion/styled",
         "linter": "eslint"
       }
+    },
+    "@nx/react": {
+      "library": {}
     }
   }
 }

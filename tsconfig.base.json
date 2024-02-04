@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ogrenciden/components": ["libs/components/src/index.ts"],
+      "@ogrenciden/components/server": ["libs/components/src/server.ts"],
+      "@ogrenciden/services": ["libs/services/src/index.ts"],
+      "@ogrenciden/services/server": ["libs/services/src/server.ts"],
+      "@ogrenciden/types": ["libs/types/src/index.ts"],
+      "@ogrenciden/types/server": ["libs/types/src/server.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

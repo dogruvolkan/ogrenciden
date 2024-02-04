@@ -1,0 +1,61 @@
+{
+    "auth": {
+        "secret": "dsakjhdkashdjkashdkjashdkjasdhkjash",
+        "domain": "localhost",
+        "timeout": 86400,
+        "httpOnly": false,
+        "secure": false,
+        "ownershipBypassIPs": [
+            "127.*.*.*"
+        ],
+        "ipCheck": true,
+        "deviceIDCheck": true
+    },
+    "server": {
+        "domain": "localhost",
+        "port": 3000,
+        "securityHeaders": false,
+        "frontendURL": "http://localhost:3001",
+        "backendURL": "http://localhost:3000/api",
+        "app_name": "ogrenciden",
+        "server_header": "be1",
+        "body_limit": 10485760
+    },
+    "db": [
+        {
+            "name": "default",
+            "dialog": "mysql",
+            "args": [
+                "ogrenciden:ogrenciden@/ogrenciden?charset=utf8mb4&parseTime=True"
+            ],
+            "logMode": true,
+            "autoMigrate": [
+                "init",
+                "server"
+            ],
+            "allowGlobalUpdate": true
+        }
+    ],
+    "log": {
+        "level": "debug",
+        "development": true,
+        "encoding": "console",
+        "outputPaths": [
+            "stdout"
+        ],
+        "errorOutputPaths": [
+            "stderr"
+        ],
+        "encoderConfig": {
+            "messageKey": "msg",
+            "levelKey": "lvl",
+            "levelEncoder": "capitalColor",
+            "timeKey": "time",
+            "timeEncoder": "iso8601",
+            "nameKey": "name",
+            "callerKey": "caller",
+            "stacktraceKey": "stacktrace",
+            "durationEncoder": "string"
+        }
+    }
+}
