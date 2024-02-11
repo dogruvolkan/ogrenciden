@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { useEffect, useState } from 'react';
+
 
 const StyledPage = styled.div`
   .page {
@@ -6,25 +8,28 @@ const StyledPage = styled.div`
 `;
 
 export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.@emotion/styled file.
-   */
+
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:3000/api/v1/public/sectors'); // API URL'sini buraya ekleyin
+        const data = await response.json();
+        console.log('Data:', data)
+        setStudents(data);
+      } catch (error) {
+        console.error('Error fetching student data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <StyledPage>
+    <>
 
-      <div id="welcome">
-        <h1 style={{ textAlign: "center" }}>
-          <span> Hello </span>
-          <br />
-          DÜNYANIN EN TATLI  <br />
-          KIZI
-        </h1>
-      </div>
-
-
-    </StyledPage>
+    </>
   );
 }
 
