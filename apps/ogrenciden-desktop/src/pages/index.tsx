@@ -1,34 +1,22 @@
-import styled from '@emotion/styled';
-import { useEffect, useState } from 'react';
-
-
-const StyledPage = styled.div`
-  .page {
-  }
-`;
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import Carousel from '../../../../libs/components/src/lib/components/carousel/Carousel';
 
 export function Index() {
+  const images = [
+    { image: '/7.png', description: "SANA GÖRE İLANLAR" },
+    { image: '/1.png', description: "KİTAP  İLANLARI" },
+    { image: '/2.png', description: "İŞ VE STAJ İLANLARI" },
+    { image: '/3.png', description: "2.EL EŞYA İLANLARI" },
+    { image: '/4.png', description: "NOT İLANLARI" },
+    { image: '/5.png', description: "KİRALIK EV İLANLARI" },
+    { image: '/6.png', description: "EV ARKADAŞI İLANLARI" },
+  ];
 
-  const [students, setStudents] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:3000/api/v1/public/sectors'); // API URL'sini buraya ekleyin
-        const data = await response.json();
-        console.log('Data:', data)
-        setStudents(data);
-      } catch (error) {
-        console.error('Error fetching student data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <>
-
+      <Carousel images={images} />
     </>
   );
 }
