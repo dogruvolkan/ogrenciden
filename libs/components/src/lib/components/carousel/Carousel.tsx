@@ -73,9 +73,8 @@ const caraouselTextCss = css`
     position: absolute;
     bottom: 50px;
     right: 20px;
-    color: white;
     font-size: 1em;
-    background-image: linear-gradient(to right, #5080D7, #C6488C ,#FF3131 );
+    font-weight: bold;
     padding: 10px;
     border-radius: 10px;
 `
