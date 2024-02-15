@@ -37,6 +37,7 @@ const Header = () => {
                                         <>
                                             <li><a href="/dsds">Profilim</a></li>
                                             <li><a href="/dsds">İlanlarım</a></li>
+                                            <li><a href="/dsds">Taleplerim</a></li>
                                             <li><a href="/dsds">Favorilerim</a></li>
                                             <li><a href="/xxx">Çıkış Yap</a></li>
                                         </>
@@ -59,7 +60,10 @@ const headerContainer = css`
     justify-content:center;
     gap: 40px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin: 20px 60px;
+    margin: 20px auto;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 90%;
     border:1px solid lightgray;
     border-radius: 50px;
     img{
