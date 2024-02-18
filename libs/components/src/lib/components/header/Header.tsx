@@ -64,6 +64,7 @@ const headerContainer = css`
     border-radius: 20px;
     width: 100%;
     max-width: 90%;
+    height:90px;
     border:1px solid lightgray;
     border-radius: 50px;
     img{

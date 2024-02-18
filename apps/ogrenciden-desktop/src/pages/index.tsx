@@ -1,17 +1,6 @@
-// eslint-disable-next-line @nx/enforce-module-boundaries
 import { css } from '@emotion/react';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import Carousel from '../../../../libs/components/src/lib/components/carousel/Carousel';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import HowItWorks from '../../../../libs/components/src/lib/components/howitworks/HowItWorks';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import Statistics from '../../../../libs/components/src/lib/components/statistics/Statistics';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import Faq from '../../../../libs/components/src/lib/components/faq/Faq';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import Footer from '../../../../libs/components/src/lib/components/footer/Footer';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import Advantages from '../../../../libs/components/src/lib/components/advantages/Advantages';
+import { Advantages, Carousel, Faq, HowItWorks, Statistics } from '@ogrenciden/components';
+
 
 
 export function Index() {
@@ -26,7 +15,6 @@ export function Index() {
   ];
 
 
-
   return (
     <div css={containerCSS}>
       <Carousel images={images} />
@@ -34,7 +22,7 @@ export function Index() {
       <Statistics />
       <Faq />
       <Advantages />
-      <Footer />
+
     </div>
   );
 }
