@@ -1,7 +1,8 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
-import { Header } from '@ogrenciden/components';
+import { Header, Footer } from '@ogrenciden/components';
+import { css } from '@emotion/react';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,12 +10,19 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to ogrenciden!</title>
       </Head>
-      <main className="app">
+      <main >
         <Header />
-        <Component {...pageProps} />
+        <div css={appCss}>
+          <Component {...pageProps} />
+        </div>
+        <Footer />
       </main>
     </>
   );
 }
+
+const appCss = css`
+  min-height: calc(100vh - 350px);
+`
 
 export default CustomApp;

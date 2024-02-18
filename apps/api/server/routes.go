@@ -1,6 +1,7 @@
 package server
 
 import (
+	"ogrenciden/apps/api/internal/features/requests"
 	"ogrenciden/apps/api/internal/features/sectors"
 
 	"github.com/gofiber/fiber/v2"
@@ -8,7 +9,7 @@ import (
 )
 
 func AddRoutes(app *fiber.App) {
-	api := app.Group("/api/v1", DefaultHeaders)
+	api := app.Group("/api", DefaultHeaders)
 
 	public := api.Group("")
 	//authenticatedRoutes(api)
@@ -19,4 +20,5 @@ func AddRoutes(app *fiber.App) {
 func publicRoutes(r fiber.Router) {
 	public := r.Group("/public")
 	sectors.SectorPublicControler(public.Group("/sectors"), sectors.SectorService(sectors.SectorRepository(db.DB())))
+	requests.RequestStudentController(public.Group("/requests"), requests.RequestService(requests.RequestRepository(db.DB())))
 }
