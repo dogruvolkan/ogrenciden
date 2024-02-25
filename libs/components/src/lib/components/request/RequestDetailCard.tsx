@@ -17,6 +17,7 @@ export const RequestDetailCard = (props: Props) => {
             <div>
                 <p><span>Talep eden:{ }</span></p>
                 <p><span>Başlık:</span> {request.Title}</p>
+                <p><span>Kategori:</span> {request?.Category?.Name ?? ""}</p>
                 <p><span>Başlangıç Tarihi:</span> {Utils.getDate(request.RequestStartDate)}</p>
                 <p><span>Bitiş Tarihi:</span> {Utils.getDate(request.RequestEndDate)}</p>
                 <p><span>Açıklama:</span> {request.Description}</p>

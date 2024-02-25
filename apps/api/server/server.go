@@ -16,6 +16,7 @@ func Run() {
 	serverConfig.ErrorHandler = ErrorHandler
 
 	app := fiber.New(serverConfig.Config)
+	app.Static("/static", "./static")
 	app.Use(logger.New())
 	app.Use(etag.New())
 

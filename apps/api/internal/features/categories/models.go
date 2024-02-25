@@ -1,8 +1,8 @@
-package sectors
+package categories
 
 import "gorm.io/gorm"
 
-type Sector struct {
+type Category struct {
 	gorm.Model
 	Name string `validate:"required"`
 }

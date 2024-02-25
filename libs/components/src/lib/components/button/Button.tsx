@@ -28,7 +28,7 @@ export default Button;
 
 const buttonCss = (variant: 'primary' | 'secondary' | 'danger', size: 'sm' | 'md' | 'lg') => css`
     background-color:${variant === 'primary' ? '#5080D7' : variant === 'secondary' ? '#C6488C' : '#FF3131'};
-    width:${size === 'sm' ? '100px' : size === 'md' ? '150px' : '200px'};
+    width:${size === 'sm' ? '100px' : size === 'md' ? '150px' : '100%'};
     height:${size === 'sm' ? '30px' : size === 'md' ? '40px' : '50px'};
     border:1px solid none;
     border-radius: 20px;
