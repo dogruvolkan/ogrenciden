@@ -33,9 +33,16 @@ const Carousel = (props: Props) => {
 
     return (
         <div css={carouselContainerCss}>
+
             <button onClick={prevImage} css={[carouselButton, leftButton]}><AiOutlineLeftCircle /></button>
-            <img css={carouselImageCss} src={images[currentImageIndex]?.image} alt="carousel" />
-            <p css={caraouselTextCss}>{images[currentImageIndex]?.description}</p>
+            <div css={contentCss}>
+                <img css={carouselImageCss} src={images[currentImageIndex]?.image} alt="carousel" />
+                <svg css={svgCss} viewBox="0 0 1320 300">
+                    <text css={textCss} x="50%" y="50%" dy=".35em" text-anchor="middle">
+                        {images[currentImageIndex]?.description}
+                    </text>
+                </svg>
+            </div>
             <button onClick={nextImage} css={[carouselButton, rightButton]}><AiOutlineRightCircle /></button>
             <div css={indicatorContainer}>
                 {images?.map((_, index) => (
@@ -62,22 +69,62 @@ const carouselContainerCss = css`
 `
 
 const carouselImageCss = css`
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+    width: 40%;
+    height: 80%;
     object-fit: contain;
-    
+    user-select: none;
 `
 
-const caraouselTextCss = css`
-    position: absolute;
-    bottom: 50px;
-    right: 20px;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 10px;
+const contentCss = css`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 `
+
+const svgCss = css`
+   width:40%;
+   user-select: none;
+`;
+
+const textCss = css`
+    text-transform: uppercase;
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #365fa0;
+    font-size: 120px;
+
+    @keyframes stroke {
+        0% {
+          fill: rgba(0, 0, 0, 0);
+          stroke: rgba(54, 95, 160, 1);
+          stroke-dashoffset: 25%;
+          stroke-dasharray: 0 50%;
+          stroke-width: 2;
+        }
+        70% {
+          fill: rgba(0, 0, 0, 0);
+          stroke: rgba(54, 95, 160, 1);
+        }
+        80% {
+          fill: rgba(0, 0, 0, 0);
+          stroke: rgba(54, 95, 160, 1);
+          stroke-width: 3;
+        }
+        100% {
+          fill: rgba(0, 0, 0, 1);
+          stroke: rgba(54, 95, 160, 0);
+          stroke-dashoffset: -25%;
+          stroke-dasharray: 50% 0;
+          stroke-width: 0;
+        }
+      }
+      
+`
+
+
 
 const carouselButton = css`
     position: absolute;
