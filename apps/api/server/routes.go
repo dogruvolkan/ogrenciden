@@ -1,8 +1,8 @@
 package server
 
 import (
+	"ogrenciden/apps/api/internal/features/categories"
 	"ogrenciden/apps/api/internal/features/requests"
-	"ogrenciden/apps/api/internal/features/sectors"
 
 	"github.com/gofiber/fiber/v2"
 	"gitlab.com/sincap/sincap-common/db"
@@ -19,6 +19,6 @@ func AddRoutes(app *fiber.App) {
 
 func publicRoutes(r fiber.Router) {
 	public := r.Group("/public")
-	sectors.SectorPublicControler(public.Group("/sectors"), sectors.SectorService(sectors.SectorRepository(db.DB())))
+	categories.CategoryPublicControler(public.Group("/categories"), categories.CategoryService(categories.CategoryRepository(db.DB())))
 	requests.RequestStudentController(public.Group("/requests"), requests.RequestService(requests.RequestRepository(db.DB())))
 }

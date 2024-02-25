@@ -23,7 +23,7 @@ const Header = () => {
                         <li><a href="/">2.EL EŞYA</a></li>
                         <li><a href="/">STAJ & İŞ</a></li>
                         <li><a href="/">EV & EV ARKADAŞI</a></li>
-                        <Button size={"md"} variant={"primary"} onClick={undefined}>TALEP OLUŞTUR</Button>
+                        <Button size={"md"} variant={"primary"}><a href="/requests/create"> TALEP OLUŞTUR</a></Button>
                         <Button size={"md"} variant={"secondary"} onClick={undefined}>İLAN VER</Button>
                         <button css={userBtnCss} onClick={toggleUserPopover}>
                             <AiOutlineUser size={25} />

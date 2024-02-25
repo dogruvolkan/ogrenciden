@@ -1,4 +1,4 @@
-package sectors
+package categories
 
 import (
 	"strconv"
@@ -8,7 +8,7 @@ import (
 	"gitlab.com/sincap/sincap-common/middlewares/qapi"
 )
 
-func SectorPublicControler(r fiber.Router, s Service) {
+func CategoryPublicControler(r fiber.Router, s Service) {
 	res := controller{s}
 	r.Get("/", middlewares.QApi, res.list)
 
@@ -21,7 +21,7 @@ type controller struct {
 func (res *controller) list(ctx *fiber.Ctx) error {
 	q := ctx.Locals("qapi").(*qapi.Query)
 
-	sectors, count, err := res.service.List(ctx.UserContext(), q)
+	categories, count, err := res.service.List(ctx.UserContext(), q)
 
 	if err != nil {
 		return err
@@ -29,5 +29,5 @@ func (res *controller) list(ctx *fiber.Ctx) error {
 	}
 
 	ctx.Set("X-Total-Count", strconv.FormatInt(int64(count), 10))
-	return ctx.Format(sectors)
+	return ctx.Format(categories)
 }
