@@ -12,5 +12,8 @@ sudo service mysql start <br /> <br />
 ## backend  <br />
 npx nx run api:serve <br /><br />
 
-## frontend - desktop <br />
+## desktop <br />
 npx nx run ogrenciden-desktop:serve <br /><br />
+
+## admin <br />
+npx nx run admin:serve <br /><br />
