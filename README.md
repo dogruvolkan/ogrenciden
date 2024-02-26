@@ -1,4 +1,5 @@
-# Ogrenciden
+# Ogrenciden  <br /><br />
+npx nx g @nx/next:app admin   for monorepo create
 
 ## db create <br />
 - CREATE USER 'ogrenciden'@'localhost' IDENTIFIED BY 'ogrenciden';
@@ -6,14 +7,14 @@
 - CREATE DATABASE ogrenciden;
 - GRANT ALL PRIVILEGES ON ogrenciden.* TO 'ogrenciden'@'localhost';**
 
-## db <br />
+## run  db <br />
 sudo service mysql start <br /> <br />
 
-## backend  <br />
+## run backend  <br />
 npx nx run api:serve <br /><br />
 
-## desktop <br />
+## run desktop <br />
 npx nx run ogrenciden-desktop:serve <br /><br />
 
-## admin <br />
+## run admin <br />
 npx nx run admin:serve <br /><br />
