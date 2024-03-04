@@ -5,6 +5,7 @@ import (
 	"ogrenciden/apps/api/internal/features/categories"
 	"ogrenciden/apps/api/internal/features/requests"
 	"ogrenciden/apps/api/internal/features/roles"
+	"ogrenciden/apps/api/internal/features/users"
 
 	"gitlab.com/sincap/sincap-common/db"
 	"gitlab.com/sincap/sincap-common/db/util"
@@ -18,4 +19,5 @@ var models = []interface{}{
 	&categories.Category{},
 	&requests.Request{},
 	&roles.Role{},
+	&users.User{},
 }
