@@ -11,7 +11,7 @@ const Header = () => {
         setUserPopover(!userPopever);
     }
 
-    const isLogged = false;
+    const isLogged = true;
 
     return (
         <header>
@@ -31,8 +31,8 @@ const Header = () => {
                                 <ul>
                                     {isLogged ?
                                         <>
-                                            <li><a href="/dsds">Giriş Yap</a></li>
-                                            <li><a href="/dsds">Kayıt Ol</a></li>
+                                            <li><a href="/login">Giriş Yap</a></li>
+                                            <li><a href="/register">Kayıt Ol</a></li>
                                         </> :
                                         <>
                                             <li><a href="/dsds">Profilim</a></li>

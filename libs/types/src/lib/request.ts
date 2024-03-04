@@ -2,6 +2,8 @@ import { QApis } from "..";
 import { request } from "./fetch";
 import { Category } from "./categories";
 
+// talepler için
+
 
 export interface Request {
     ID: number;
