@@ -1,9 +1,77 @@
 import { css } from "@emotion/react"
-import { Button, Input } from "@ogrenciden/components";
+import { Button, Input, SelectBox } from "@ogrenciden/components";
+import { Auth, Users, Utils } from "@ogrenciden/types";
+import { sha256 } from "js-sha256";
+import { useCallback, useState } from "react";
 
 
 
 export const Register = () => {
+
+    const [selectedRole , setSelectedRole] = useState<Users.Role>(Users.Role.STUDENT)
+    const [rePassword , setRePassword] = useState<string>("")
+
+    const [register , setRegister] = useState<Auth.Register>({
+        UserName:"",
+        FirstName:"",
+        LastName:"",
+        Role:Users.Role.STUDENT,
+        Password:"",
+    })
+
+    const checkPassword = useCallback(() =>{
+        if(rePassword.length > 0){
+           return  Utils.checkPassword(register.Password, rePassword)
+        }
+    },[rePassword, register.Password])
+
+
+    const onSubmit = useCallback(() => {
+        if (checkPassword()) {
+          Auth.register({
+            ...register,
+            Password: register.Password
+              ? sha256(register.Password)
+              : '',
+            Role: selectedRole,
+          }).then((res) => {
+            if (!res?.error) {
+              alert('Kayıt başarılı');
+              setRegister({
+                FirstName: '',
+                LastName: '',
+                UserName: '',
+                Password: '',
+                Role: Users.Role.STUDENT,
+              });
+              setRePassword('');
+            } else {
+              alert(res.error.message);
+            }
+          });
+        } else {
+          alert('Şifreler uyuşmuyor');
+        }
+      }, [checkPassword, register, selectedRole]);
+
+
+      const onFirstNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        setRegister({...register, FirstName: e.target.value})
+      }, [register]);
+
+      const onLastNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        setRegister({...register, LastName: e.target.value})
+      }, [register]);
+
+      const onUserNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        setRegister({...register, UserName: e.target.value})
+      }, [register]);
+
+      const onPasswordChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        setRegister({...register, Password: e.target.value})
+      }, [register]);
+    
+
 
     return (
         <div css={registerContainerCss}>
@@ -12,10 +80,13 @@ export const Register = () => {
             </div>
             <div css={formContainerCss}>
                 <h1>Kayıt Ol</h1>
-               <Input type={"text"} label={"Kullanıcı Adı"} placeholder={"Kullanıcı Adı"} value={undefined} onChange={undefined}/>
-               <Input type={"password"} label={"Şifre"} placeholder={"Şifre"} value={undefined} onChange={undefined}/>
-               <Input type={"password"} label={"Şifre Tekrar"} placeholder={"Şifre Tekrar"} value={undefined} onChange={undefined}/>
-               <Button size={"md"} variant={"danger"}>Kayıt Ol</Button>
+                <Input type={"text"} label={"Kullanıcı Adı"} placeholder={"Kullanıcı Adı"} value={register.FirstName} onChange={onFirstNameChange}/>
+                <Input type={"text"} label={"Kullanıcı Soyadı"} placeholder={"Kullanıcı Soyadı"} value={register.LastName} onChange={onLastNameChange}/>
+               <Input type={"email"} label={"Kullanıcı Email"} placeholder={"Kullanıcı Email"} value={register.UserName} onChange={onUserNameChange}/>
+               {/* <SelectBox options={roles} onSelectOption={handleOptionSelect} label={"Role:"} optionLabel="Name" optionValue="ID" /> */}
+               <Input type={"password"} label={"Şifre"} placeholder={"Şifre"} value={register.Password} onChange={onPasswordChange}/>
+               <Input type={"password"} label={"Şifre Tekrar"} placeholder={"Şifre Tekrar"} value={rePassword} onChange={(e) => {setRePassword(e.target.value)}}/>
+               <Button size={"md"} variant={"danger"} onClick={onSubmit}>Kayıt Ol</Button>
             </div>
         </div>
     )

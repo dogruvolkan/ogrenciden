@@ -6,7 +6,7 @@ export interface User{
     UpdatedAt: string;
     FirstName: string;
     LastName: string;
-    Username: string;
+    UserName: string;
     Description: string;
     Address: string;
     Gender: string;

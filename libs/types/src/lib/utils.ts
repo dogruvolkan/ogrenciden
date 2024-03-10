@@ -10,3 +10,8 @@ export function getDateWithTime(dateTimeString: string) {
     const timeStr = time.toLocaleDateString();
     return `${timeStr} ${hour}`;
 }
+
+
+export function checkPassword(password:string , confirmedPassword:string):boolean{
+    return password === confirmedPassword;
+}

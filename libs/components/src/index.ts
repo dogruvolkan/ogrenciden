@@ -14,6 +14,8 @@ import Textarea from './lib/components/form/Textarea'
 import SelectBox from './lib/components/form/SelectBox'
 import DatePicker from './lib/components/form/DatePicker'
 import ImgUpload from './lib/components/form/ImgUpload'
+import * as AuthContext from './lib/contexts/AuthContext';
+
 
 export { Header }
 export { Button }
@@ -31,3 +33,4 @@ export { Textarea }
 export { SelectBox }
 export { DatePicker }
 export { ImgUpload }
+export {AuthContext}

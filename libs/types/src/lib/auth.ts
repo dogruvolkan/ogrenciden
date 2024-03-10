@@ -1,19 +1,20 @@
+import { Users } from "..";
 import { request } from "./fetch";
 import { User } from "./users";
 
 
 export interface Login{
-    Username : string;
+    UserName : string;
     Password :string;
-    token : string;
+    token?: string;
 }
 
 
 export interface Register{
-    Username:string;
+    UserName:string;
     FirstName:string;
     LastName:string;
-    Role:string;
+    Role:Users.Role;
     Password:string;
 }
 
@@ -31,7 +32,7 @@ export async function auth(body:Login){
     const headers = {
         Accept:'application/json',
         'Content-Type':'application/json',
-        'X-Username':body.Username,
+        'X-Username':body.UserName,
 
     }
     return await request<User>('public/auth',{

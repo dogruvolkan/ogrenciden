@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
-import { Header, Footer } from '@ogrenciden/components';
+import { Header, Footer, AuthContext } from '@ogrenciden/components';
 import { css } from '@emotion/react';
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -11,11 +11,13 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to ogrenciden!</title>
       </Head>
       <main >
+        <AuthContext.AuthProvider>
         <Header />
         <div css={appCss}>
           <Component {...pageProps} />
         </div>
         <Footer />
+        </AuthContext.AuthProvider>
       </main>
     </>
   );
