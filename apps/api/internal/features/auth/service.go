@@ -48,8 +48,6 @@ func (ser *service) Login(ctx context.Context, req *Login, userAgent, ip string)
 	}
 
 	// create claims extras
-	// check if user has coach role
-	// check if user has sporter role
 	claimsExtras, err := fillExtras(u, ser, tx)
 	if err != nil {
 		return u, nil, err
