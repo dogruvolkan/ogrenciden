@@ -2,6 +2,7 @@ import { css } from "@emotion/react"
 import { Button, Input, SelectBox } from "@ogrenciden/components";
 import { Auth, Users, Utils } from "@ogrenciden/types";
 import { sha256 } from "js-sha256";
+import router from "next/router";
 import { useCallback, useState } from "react";
 
 
@@ -45,6 +46,7 @@ export const Register = () => {
                 Role: Users.Role.STUDENT,
               });
               setRePassword('');
+              router.push("/login")
             } else {
               alert(res.error.message);
             }

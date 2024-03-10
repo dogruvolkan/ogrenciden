@@ -1,9 +1,11 @@
 package auth
 
 import (
+	"ogrenciden/apps/api/configs"
 	"ogrenciden/apps/api/jwt"
 
 	"github.com/gofiber/fiber/v2"
+	"gitlab.com/sincap/sincap-common/auth"
 	"gitlab.com/sincap/sincap-common/middlewares"
 	"gitlab.com/sincap/sincap-common/net"
 )
@@ -18,6 +20,8 @@ type controller struct {
 func AuthController(r fiber.Router, s Service) {
 	res := controller{s}
 	r.Post("/", middlewares.BodyParser[Login]("auth"), res.login)
+	r.Get("/logout", res.logout)
+	r.Post("/register", middlewares.BodyParser[Register]("auth"), middlewares.Validator("auth"), res.Register)
 }
 
 // login godoc
@@ -42,4 +46,24 @@ func (rs *controller) login(ctx *fiber.Ctx) error {
 		return ctx.SendStatus(fiber.StatusInternalServerError)
 	}
 	return ctx.JSON(u)
+}
+
+func (rs *controller) Register(ctx *fiber.Ctx) error {
+	req := ctx.Locals("auth").(*Register)
+
+	userAgent := ctx.Get("User-Agent")
+	ip := net.ReadUserIP(ctx)
+
+	_, err := rs.service.Register(ctx.UserContext(), req, userAgent, ip)
+	if err != nil {
+		return err
+	}
+
+	return ctx.SendStatus(fiber.StatusNoContent)
+}
+
+func (rs *controller) logout(ctx *fiber.Ctx) error {
+	auth.InvalidateCookies(ctx, configs.Instance.Auth)
+
+	return ctx.SendStatus(fiber.StatusNoContent)
 }

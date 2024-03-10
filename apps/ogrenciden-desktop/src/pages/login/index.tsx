@@ -3,6 +3,7 @@ import { Button, Input } from "@ogrenciden/components";
 import { AuthService } from "@ogrenciden/services";
 import { Auth } from "@ogrenciden/types";
 import { AuthContext } from "libs/components/src/lib/contexts/AuthContext";
+import router from "next/router";
 import { useCallback, useContext, useState } from "react";
 
 
@@ -26,6 +27,7 @@ export const Login = () => {
 
     const onLogin = useCallback(() => {
         AuthService.login(login , authContext).then(() => {
+            router.push("/")
             console.log("login success")
         }
         ).catch((err) => {

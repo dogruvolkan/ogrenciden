@@ -1,7 +1,11 @@
 import { css } from '@emotion/react';
 import Button from '../button/Button';
 import { AiOutlineUser } from "react-icons/ai";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthService } from '@ogrenciden/services';
+import { AuthContext } from '../../contexts/AuthContext';
+import { Auth } from '@ogrenciden/types';
+import router from 'next/router';
 
 const Header = () => {
 
@@ -11,7 +15,20 @@ const Header = () => {
         setUserPopover(!userPopever);
     }
 
-    const isLogged = true;
+    const authContext = useContext(AuthContext)
+
+    console.log(authContext)
+
+    const onLogout = () => {
+        Auth.logout().then(() => {
+            router.reload()
+        }
+        ).catch((err) => {
+            alert(err)
+            console.log(err)
+        }
+        )
+    }
 
     return (
         <header>
@@ -26,20 +43,22 @@ const Header = () => {
                         <Button size={"md"} variant={"primary"}><a href="/requests/create"> TALEP OLUŞTUR</a></Button>
                         <Button size={"md"} variant={"secondary"} onClick={undefined}>İLAN VER</Button>
                         <button css={userBtnCss} onClick={toggleUserPopover}>
-                            <AiOutlineUser size={25} />
+                            <AiOutlineUser size={25}> </AiOutlineUser>
+                            <span css={userCss}>{authContext.isAuthenticated && `${(authContext.user?.FirstName)?.toUpperCase()}`}</span>
                             {userPopever && <div css={userPopeverCss}>
                                 <ul>
-                                    {isLogged ?
+                                    {!authContext.isAuthenticated ?
                                         <>
                                             <li><a href="/login">Giriş Yap</a></li>
                                             <li><a href="/register">Kayıt Ol</a></li>
                                         </> :
                                         <>
+                                            
                                             <li><a href="/dsds">Profilim</a></li>
                                             <li><a href="/dsds">İlanlarım</a></li>
                                             <li><a href="/dsds">Taleplerim</a></li>
                                             <li><a href="/dsds">Favorilerim</a></li>
-                                            <li><a href="/xxx">Çıkış Yap</a></li>
+                                            <li ><button css={logoutBtnCss}  onClick={onLogout}>Çıkış Yap</button></li>
                                         </>
                                     }
                                 </ul>
@@ -143,6 +162,20 @@ const userPopeverCss = css`
         }
     }
 `
+
+const userCss = css`
+    position:absolute;
+   left:50px;
+   bottom:9px;
+   width: 50px;
+   white-space: wrap;
+   vertical-space: 10px;
+  
+`
+
+const logoutBtnCss = css`
+    background-color:transparent;
+` 
 
 export default Header;
 

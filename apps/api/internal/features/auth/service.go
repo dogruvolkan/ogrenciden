@@ -5,6 +5,9 @@ import (
 	"ogrenciden/apps/api/configs"
 	"time"
 
+	"ogrenciden/apps/api/internal/features/companies"
+	"ogrenciden/apps/api/internal/features/roles"
+	"ogrenciden/apps/api/internal/features/students"
 	"ogrenciden/apps/api/internal/features/users"
 
 	"github.com/gofiber/fiber/v2"
@@ -14,15 +17,18 @@ import (
 
 type Service interface {
 	Login(ctx context.Context, req *Login, userAgent, ip string) (*users.User, *claims.EncryptedClaims, error)
+	Register(ctx context.Context, req *Register, userAgent, ip string) (*users.User, error)
 }
 type service struct {
-	repository Repository
-	usersRepo  users.Repository
+	repository  Repository
+	usersRepo   users.Repository
+	studentRepo students.Repository
+	companyRepo companies.Repository
 }
 
 func AuthService(r Repository,
-	userRepo users.Repository) Service {
-	return &service{r, userRepo}
+	userRepo users.Repository, studentRepo students.Repository, companyRepo companies.Repository) Service {
+	return &service{r, userRepo, studentRepo, companyRepo}
 }
 func (ser *service) Login(ctx context.Context, req *Login, userAgent, ip string) (*users.User, *claims.EncryptedClaims, error) {
 	password := req.Password
@@ -73,22 +79,70 @@ func fillExtras(u *users.User, ser *service, tx users.Repository) (map[string]in
 	}
 	//TODO:add necessary extras
 
-	// if u.RoleID == users.Role(roles.STUDENT) {
-	// 	student, err := ser.studentRepo.FindByUserID(u.ID)
-	// 	if err != nil || student == nil {
-	// 		tx.RollbackTx()
-	// 		return nil, services.NewError(500, "Student not found")
-	// 	}
-	// 	claimsExtras["StudentID"] = student.ID
+	if u.RoleID == users.Role(roles.StudentID) {
+		student, err := ser.studentRepo.FindByUserID(u.ID)
+		if err != nil || student == nil {
+			tx.RollbackTx()
+			return nil, services.NewError(500, "Student not found")
+		}
+		claimsExtras["StudentID"] = student.ID
 
-	// } else if u.RoleID == users.Role(roles.COMPANY) {
-	// 	company, err := ser.companyRepo.FindByUserID(u.ID)
-	// 	if err != nil || company == nil {
-	// 		tx.RollbackTx()
-	// 		return nil, services.NewError(500, "Company not found")
-	// 	}
-	// 	claimsExtras["CompanyID"] = company.ID
+	} else if u.RoleID == users.Role(roles.CompanyID) {
+		company, err := ser.companyRepo.FindByUserID(u.ID)
+		if err != nil || company == nil {
+			tx.RollbackTx()
+			return nil, services.NewError(500, "Company not found")
+		}
+		claimsExtras["CompanyID"] = company.ID
 
-	// }
+	}
 	return claimsExtras, nil
+}
+
+func (ser *service) Register(ctx context.Context, req *Register, userAgent, ip string) (*users.User, error) {
+	tx, err := ser.usersRepo.BeginTx(ctx)
+	if err != nil {
+		return nil, fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	}
+
+	u := users.User{
+		Username:  req.UserName,
+		FirstName: req.FirstName,
+		LastName:  req.LastName,
+		RoleID:    users.Role(req.Role),
+		Password:  req.Password,
+	}
+
+	if _, err := tx.FindByUsername(u.Username); err == nil {
+		tx.RollbackTx()
+		return nil, fiber.NewError(400, "Bu email adresi zaten kullanımda")
+	}
+
+	err = ser.usersRepo.Create(&u)
+	if err != nil {
+		tx.RollbackTx()
+		return nil, fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	}
+
+	if req.Role == users.StudentID {
+		student := students.Student{
+			UserID: u.ID,
+		}
+		err = ser.studentRepo.Create(&student)
+		if err != nil {
+			tx.RollbackTx()
+			return nil, fiber.NewError(fiber.StatusInternalServerError, err.Error())
+		}
+	} else if req.Role == users.CompanyID {
+		company := companies.Company{
+			UserID: u.ID,
+		}
+		err = ser.companyRepo.Create(&company)
+		if err != nil {
+			tx.RollbackTx()
+			return nil, fiber.NewError(fiber.StatusInternalServerError, err.Error())
+		}
+	}
+	tx.CommitTx()
+	return &u, nil
 }
