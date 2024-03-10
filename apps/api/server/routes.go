@@ -33,6 +33,7 @@ func publicRoutes(r fiber.Router) {
 	public := r.Group("/public")
 	auth.AuthController(public.Group("/auth"), auth.AuthService(auth.AuthRepository(db.DB()), users.UserRepository(db.DB()), students.StudentRepository(db.DB()), companies.CompanyRepository(db.DB())))
 	categories.CategoryPublicControler(public.Group("/categories"), categories.CategoryService(categories.CategoryRepository(db.DB())))
+	roles.RoleController(public.Group("/roles"), roles.RoleService(roles.RoleRepository(db.DB())))
 	requests.RequestStudentController(public.Group("/requests"), requests.RequestService(requests.RequestRepository(db.DB())))
 }
 

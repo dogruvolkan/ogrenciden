@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
+	"gitlab.com/sincap/sincap-common/middlewares"
 	"gitlab.com/sincap/sincap-common/middlewares/qapi"
 )
 
@@ -13,7 +14,7 @@ type controller struct {
 
 func RoleController(r fiber.Router, s Service) {
 	res := controller{s}
-	r.Get("/", res.list)
+	r.Get("/", middlewares.QApi, res.list)
 }
 
 // list godoc

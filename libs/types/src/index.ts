@@ -7,3 +7,4 @@ export * as Auth from './lib/auth';
 export * as Users from './lib/users';
 export * as Storages from './lib/storage';
 export * as Callback from './lib/callback';
+export * as Role from './lib/role';

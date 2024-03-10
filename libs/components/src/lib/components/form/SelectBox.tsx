@@ -28,7 +28,7 @@ export const SelectBox = (props: Props) => {
         <div css={SelectBoxContainerCss}>
             <label>{label}</label>
             <select css={SelectBoxCss} value={selectedOption} onChange={handleOptionChange}>
-                <option value={""}>Kategori Seçiniz</option>
+                <option value={""}>{`${label} seçiniz`}</option>
                 {options.map((option, index) => {
                     return <option key={index} value={option[optionValue]}>{option[optionLabel]}</option>
                 })}

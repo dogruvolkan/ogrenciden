@@ -5,6 +5,7 @@ import { Auth } from "@ogrenciden/types";
 import { AuthContext } from "libs/components/src/lib/contexts/AuthContext";
 import router from "next/router";
 import { useCallback, useContext, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 
 export const Login = () => {
@@ -27,11 +28,18 @@ export const Login = () => {
 
     const onLogin = useCallback(() => {
         AuthService.login(login , authContext).then(() => {
-            router.push("/")
-            console.log("login success")
+            toast.success("Giriş Başarılı", {
+                autoClose: 2000,
+            });
+            //waiting close toast
+            setTimeout(() => {
+                router.push("/")
+            }, 2000);
         }
         ).catch((err) => {
-            console.log(err.message)
+            toast.error(err.message, {
+                autoClose: 2000,
+            });
         })
 
     },[login, authContext])
@@ -39,7 +47,7 @@ export const Login = () => {
     return (
         <div css={loginContainerCss}>
             <div css={imgContainerCss}> 
-                <img src={"login.svg"} alt="" />
+                <img src={"login.svg"} alt="login" />
             </div>
             <div css={formContainerCss}>
                 <h1>Giriş Yap</h1>
@@ -48,6 +56,7 @@ export const Login = () => {
                <span><a href={"/register"}>Hesabın yok mu? Kayıt Ol.</a></span>
                <Button size={"md"} variant={"primary"} onClick={onLogin}>Giriş Yap</Button>
             </div>
+            <ToastContainer />
         </div>
     )
 }
