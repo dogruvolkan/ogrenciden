@@ -10,6 +10,7 @@ import (
 type Repository interface {
 	repositories.Repository[User]
 	FindByUsername(username string) (*User, error)
+	FindUserById(id uint) (*User, error)
 	BeginTx(ctx context.Context) (Repository, error)
 	RollbackTx() error
 	CommitTx() error
@@ -50,4 +51,12 @@ func (rep *repository) RollbackTx() error {
 }
 func (rep *repository) CommitTx() error {
 	return rep.DB.Commit().Error
+}
+
+func (rep *repository) FindUserById(id uint) (*User, error) {
+	user := User{}
+	if res := rep.DB.Model(User{}).Where("ID=?", id).First(&user); res.Error != nil {
+		return nil, res.Error
+	}
+	return &user, nil
 }

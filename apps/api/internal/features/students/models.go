@@ -9,5 +9,12 @@ import (
 type Student struct {
 	gorm.Model
 	UserID uint
+	Gender string
+	BirthDate string
+	University string
+	Department string
+	Location string
+	Description string
+	Phone string
 	User   *users.User `gorm:"foreignKey:UserID"`
 }

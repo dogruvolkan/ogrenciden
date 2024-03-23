@@ -1,8 +1,6 @@
 import { css } from '@emotion/react';
 import { Advantages, Carousel, Faq, HowItWorks, Statistics } from '@ogrenciden/components';
 
-
-
 export function Index() {
   const images = [
     { image: '/7.png', description: "SANA GÖRE İLANLAR" },

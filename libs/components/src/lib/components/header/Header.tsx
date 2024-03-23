@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import Button from '../button/Button';
 import { AiOutlineUser } from "react-icons/ai";
@@ -56,7 +57,7 @@ const Header = () => {
                                             
                                             <li><a href="/dsds">Profilim</a></li>
                                             <li><a href="/dsds">İlanlarım</a></li>
-                                            <li><a href="/dsds">Taleplerim</a></li>
+                                            <li><a href="/requests/mine">Taleplerim</a></li>
                                             <li><a href="/dsds">Favorilerim</a></li>
                                             <li ><button css={logoutBtnCss}  onClick={onLogout}>Çıkış Yap</button></li>
                                         </>

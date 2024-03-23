@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { Button, DatePicker, ImgUpload, Input, SelectBox, Textarea } from "@ogrenciden/components";
+import { Button, DatePicker, Input, SelectBox, Textarea } from "@ogrenciden/components";
 import { UserRequest, Category } from "@ogrenciden/types";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";

@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 
 export interface Props {
     requests: UserRequest.Request[];
-    url: any;
+    url?: any;
 }
 
 export const Requests = (props: Props) => {

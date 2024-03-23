@@ -125,6 +125,7 @@ func (ser *service) Register(ctx context.Context, req *Register, userAgent, ip s
 	if req.Role == users.StudentID {
 		student := students.Student{
 			UserID: u.ID,
+			
 		}
 		err = ser.studentRepo.Create(&student)
 		if err != nil {

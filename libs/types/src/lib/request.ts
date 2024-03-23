@@ -1,10 +1,8 @@
-import { QApis } from "..";
+import { QApis, Users } from "..";
 import { request } from "./fetch";
 import { Category } from "./categories";
 
 // talepler için
-
-
 export interface Request {
     ID: number;
     CreatedAt: string;
@@ -15,6 +13,8 @@ export interface Request {
     Published: boolean;
     Category: Category;
     CategoryID: number;
+    Student : Users.User;
+    StudentID: number;
     RequestStartDate: string;
     RequestEndDate: string;
 }
@@ -32,8 +32,15 @@ export async function publicList(qapi?: QApis.QApi) {
 }
 
 export async function create(value: Request) {
-    return await request<Request>(`public/requests`, {
+    return await request<never>(`students/requests`, {
         method: 'POST',
         body: JSON.stringify(value)
+    })
+}
+
+export async function myRequests(options?: RequestInit, qapi?: QApis.QApi) {
+    return await request<Request[]>(`students/requests/mine${QApis.toQueryParam(qapi)}`, {
+        method: 'GET',
+        ...options
     })
 }

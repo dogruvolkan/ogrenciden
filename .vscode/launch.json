@@ -11,9 +11,9 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/libs/types/src/lib/request.ts",
+            "program": "${workspaceRoot}/apps/api/main.go",
             "outFiles": [
-                "${workspaceFolder}/**/*.js"
+                "${workspaceRoot}/apps/api/config.json",
             ]
         }
     ]

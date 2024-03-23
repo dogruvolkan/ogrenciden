@@ -1,4 +1,4 @@
-
+/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { UserRequest, Utils } from "@ogrenciden/types";
 
@@ -15,7 +15,7 @@ export const RequestDetailCard = (props: Props) => {
                 <img src="https://via.placeholder.com/500" alt="request" />
             </div>
             <div>
-                <p><span>Talep eden:{ }</span></p>
+                <p><span>Talep eden:{request.StudentID}</span></p>
                 <p><span>Başlık:</span> {request.Title}</p>
                 <p><span>Kategori:</span> {request?.Category?.Name ?? ""}</p>
                 <p><span>Başlangıç Tarihi:</span> {Utils.getDate(request.RequestStartDate)}</p>
