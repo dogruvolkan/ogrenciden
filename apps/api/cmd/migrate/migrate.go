@@ -3,10 +3,13 @@ package migrate
 import (
 	"ogrenciden/apps/api/configs"
 	"ogrenciden/apps/api/internal/features/categories"
+	"ogrenciden/apps/api/internal/features/cities"
 	"ogrenciden/apps/api/internal/features/companies"
+	secondhand "ogrenciden/apps/api/internal/features/notice/secondHand"
 	"ogrenciden/apps/api/internal/features/requests"
 	"ogrenciden/apps/api/internal/features/roles"
 	"ogrenciden/apps/api/internal/features/students"
+	"ogrenciden/apps/api/internal/features/universities"
 	"ogrenciden/apps/api/internal/features/users"
 
 	"gitlab.com/sincap/sincap-common/db"
@@ -24,4 +27,7 @@ var models = []interface{}{
 	&users.User{},
 	&students.Student{},
 	&companies.Company{},
+	&cities.City{},
+	&secondhand.SecondHand{},
+	&universities.University{},
 }

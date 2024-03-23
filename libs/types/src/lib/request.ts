@@ -1,4 +1,4 @@
-import { QApis, Users } from "..";
+import { QApis, Students, Users } from "..";
 import { request } from "./fetch";
 import { Category } from "./categories";
 
@@ -13,7 +13,7 @@ export interface Request {
     Published: boolean;
     Category: Category;
     CategoryID: number;
-    Student : Users.User;
+    Student : Students.Student;
     StudentID: number;
     RequestStartDate: string;
     RequestEndDate: string;

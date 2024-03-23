@@ -1,6 +1,6 @@
 
 
-export interface Student{
+export interface Student {
     ID : number;
     CreatedAt: string;
     UpdatedAt: string;

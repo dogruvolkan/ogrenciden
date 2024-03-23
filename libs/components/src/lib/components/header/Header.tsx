@@ -42,7 +42,7 @@ const Header = () => {
                         <li><a href="/">STAJ & İŞ</a></li>
                         <li><a href="/">EV & EV ARKADAŞI</a></li>
                         <Button size={"md"} variant={"primary"}><a href="/requests/create"> TALEP OLUŞTUR</a></Button>
-                        <Button size={"md"} variant={"secondary"} onClick={undefined}>İLAN VER</Button>
+                        <Button size={"md"} variant={"secondary"}><a href="/notices/create">İLAN VER</a></Button>
                         <button css={userBtnCss} onClick={toggleUserPopover}>
                             <AiOutlineUser size={25}> </AiOutlineUser>
                             <span css={userCss}>{authContext.isAuthenticated && `${(authContext.user?.FirstName)?.toUpperCase()}`}</span>
@@ -53,8 +53,7 @@ const Header = () => {
                                             <li><a href="/login">Giriş Yap</a></li>
                                             <li><a href="/register">Kayıt Ol</a></li>
                                         </> :
-                                        <>
-                                            
+                                        <>                                      
                                             <li><a href="/dsds">Profilim</a></li>
                                             <li><a href="/dsds">İlanlarım</a></li>
                                             <li><a href="/requests/mine">Taleplerim</a></li>
@@ -176,6 +175,15 @@ const userCss = css`
 
 const logoutBtnCss = css`
     background-color:transparent;
+    text-decoration:none; 
+    color:black;
+    font-weight:600;
+    margin-left: -5px;
+    cursor:pointer;
+
+    &:hover{
+        opacity:0.8;
+    }
 ` 
 
 export default Header;

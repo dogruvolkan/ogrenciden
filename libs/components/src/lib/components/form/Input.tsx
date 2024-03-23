@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState } from "react";
 import { AiFillEyeInvisible,AiFillEye } from "react-icons/ai";
@@ -8,7 +9,7 @@ interface Props {
     placeholder?: string;
     label?: string;
     value: string;
-    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void; 
     disabled?: boolean;
 }
 

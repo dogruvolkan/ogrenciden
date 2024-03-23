@@ -6,6 +6,7 @@ import { AuthContext } from "libs/components/src/lib/contexts/AuthContext";
 import router from "next/router";
 import { useCallback, useContext, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const Login = () => {

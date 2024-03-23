@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { Button, DatePicker, Input, SelectBox, Textarea } from "@ogrenciden/components";
-import { UserRequest, Category } from "@ogrenciden/types";
+import { UserRequest, Category, City } from "@ogrenciden/types";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -9,18 +9,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 interface Props {
     categories: Category.Category[];
+    cities:City.City[]
 }
 
 export const CreateRequestContainer = (props: Props) => {
 
     const { categories } = props;
-    console.log("categories", categories)
-
-
-    categories.map((option, index) => {
-        return <div key={index} >{option.Name}</div>
-    })
-
 
     const [requests, setRequests] = useState<Partial<UserRequest.Request> | undefined>({
         Title: "",
@@ -75,10 +69,8 @@ export const CreateRequestContainer = (props: Props) => {
     //     });
     // }
 
-    console.log("request", requests)
 
     const CreateRequest = () => {
-
         UserRequest.create(requests as UserRequest.Request).then((res: any) => {
             console.log("res", res)
             if (res?.error) {
@@ -86,12 +78,12 @@ export const CreateRequestContainer = (props: Props) => {
                     autoClose: 2000,
                 });
             } else {
-                toast.success("Ekleme işlemi başarılı!", {
+                toast.success("Ekleme işlemi başarılı!  Admin onayladıktan sonra yayınlancaktır.", {
                     autoClose: 2000,
                 });
                 //waiting close toast
                 setTimeout(() => {
-                    router.push("/requests")
+                    router.push("/requests/mine")
                 }, 2000);
             }
         })

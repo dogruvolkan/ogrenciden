@@ -23,7 +23,10 @@ type Request struct {
 	Student          *students.Student    `gorm:"foreignKey:StudentID"`
 }
 
+
 const (
-	REQUEST_STATUS_PENDING uint = iota
-	REQUEST_STATUS_COMPLETED
+	REQUEST_STATUS_PENDING uint = iota    //Talep BEKLENİYOR
+	REQUEST_STATUS_APPROVED   			 //ADMİN TARAFINDAN ONAYLANDI
+	REQUEST_STATUS_REJECTED    			//ADMİN TARAFINDAN REDDEDİLDİ
+	REQUEST_STATUS_COMPLETED  			//Talep karşılandı
 )
