@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState } from "react";
 
@@ -7,8 +8,8 @@ export interface Option {
 }
 
 interface Props {
-    options: Option[];
-    onSelectOption: (option: string) => void;
+    options: Option[] | any[];
+    onSelectOption: (option: number) => void;
     label: string;
     optionLabel?: string;
     optionValue?: string;
