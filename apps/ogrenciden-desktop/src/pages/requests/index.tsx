@@ -5,17 +5,16 @@ import { css } from "@emotion/react";
 
 export interface Props {
     requests: UserRequest.Request[];
-    url?: any;
 }
 
 export const Requests = (props: Props) => {
-    const { requests, url } = props;
+    const { requests } = props;
     return (
         <div css={requestCss}>
             <h1>Talepler   <span>({requests.length} talep bulundu)</span></h1>
             <div css={requestContainerCss}>
                 {requests?.map(request => (
-                    <RequestCards key={request.ID} request={request} url={url} />
+                    <RequestCards key={request.ID} request={request} />
                 ))}
             </div>
         </div>
@@ -51,30 +50,13 @@ const requestContainerCss = css`
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-
-    const url = context.resolvedUrl;
-
     const requests = await UserRequest.publicList({
         filter: ['Published=true']
     })
 
-    const id = context.params?.id;
-
-    const request = await UserRequest.get(id as string);
-
-    if (!request) {
-        return {
-            redirect: {
-                destination: '/requests',
-                permanent: false,
-            },
-        };
-    }
-
     return {
         props: {
-            requests: requests,
-            url: url
+            requests: requests
         }
     }
 }

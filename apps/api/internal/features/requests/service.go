@@ -18,12 +18,14 @@ type Service interface {
 type service struct {
 	services.CrudService[Request]
 	repository Repository
+	userRepository users.Repository
 }
 
-func RequestService(r Repository, userRepo users.Repository) Service {
+func RequestService(r Repository, usr users.Repository) Service {
 	return &service{
 		CrudService: services.CrudService[Request]{Repository: r},
 		repository:  r,
+		userRepository: usr,
 	}
 }
 
@@ -44,9 +46,17 @@ func (s service) ReadCategoryWithPreloads(id uint) (*Request, error) {
 
 	var request Request
 
-	if err := s.repository.Read(&request, id, "Category"); err != nil {
+	if err := s.repository.Read(&request, id, "Category" , "Student","User"); err != nil {
 		return nil, err
 	}
+
+	user, err := s.userRepository.FindUserById(request.Student.UserID) 
+	
+	if err != nil {
+		 return nil, err
+	}
+
+	request.User = user
 
 	return &request, nil
 

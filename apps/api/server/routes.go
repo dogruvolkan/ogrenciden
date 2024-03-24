@@ -5,6 +5,7 @@ import (
 	"ogrenciden/apps/api/internal/features/categories"
 	"ogrenciden/apps/api/internal/features/cities"
 	"ogrenciden/apps/api/internal/features/companies"
+	booksandnotes "ogrenciden/apps/api/internal/features/notice/booksAndnotes"
 	secondhand "ogrenciden/apps/api/internal/features/notice/secondHand"
 	"ogrenciden/apps/api/internal/features/requests"
 	"ogrenciden/apps/api/internal/features/roles"
@@ -38,6 +39,8 @@ func publicRoutes(r fiber.Router) {
 	categories.CategoryPublicControler(public.Group("/categories"), categories.CategoryService(categories.CategoryRepository(db.DB())))
 	roles.RoleController(public.Group("/roles"), roles.RoleService(roles.RoleRepository(db.DB())))
 	requests.RequestsPublicController(public.Group("/requests"), requests.RequestService(requests.RequestRepository(db.DB()),users.UserRepository(db.DB())))
+	secondhand.SecondHandPublicController(public.Group("/secondhand"),secondhand.SecondHandService(secondhand.SecondHandRepository(db.DB()),users.UserRepository(db.DB())))
+	booksandnotes.BooksAndNotesPublicController(public.Group("/booksandnotes"),booksandnotes.BooksAndNotesService(booksandnotes.BooksAndNotesRepository(db.DB()),users.UserRepository(db.DB())))
 	cities.CityPublicControler(public.Group("/cities"), cities.CityService(cities.CityRepository(db.DB())))
 	universities.UniversityPublicControler(public.Group("/universities"),universities.UniversityService(universities.UniversityRepository(db.DB())))
 }
@@ -51,6 +54,7 @@ func studentsRoutes(r fiber.Router) {
 	student.Use(auth.Authenticator(auth.AuthRepository(db.DB()), roles.StudentID))
 	requests.RequestStudentController(student.Group("/requests"), requests.RequestService(requests.RequestRepository(db.DB()),users.UserRepository(db.DB())))
 	secondhand.SecondHandStudentController(student.Group("/secondhand"),secondhand.SecondHandService(secondhand.SecondHandRepository(db.DB()),users.UserRepository(db.DB())))
+	booksandnotes.BooksAndNotesStudentController(student.Group("/booksandnotes"),booksandnotes.BooksAndNotesService(booksandnotes.BooksAndNotesRepository(db.DB()),users.UserRepository(db.DB())))
 }
 
 func companiesRoutes(r fiber.Router) {

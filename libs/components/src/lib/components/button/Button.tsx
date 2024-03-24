@@ -1,10 +1,11 @@
-
+/** @jsxImportSource @emotion/react */
 // #5080D7  blue
 // #C6488C purple
 // #FF3131 red
 //  #f5f5f5 gray
 
 import { css } from "@emotion/react";
+
 
 interface Props {
     variant?: 'primary' | 'secondary' | 'danger';

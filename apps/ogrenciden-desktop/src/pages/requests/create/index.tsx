@@ -109,7 +109,9 @@ export const CreateRequestContainer = (props: Props) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
-    const categories = await Category.publicList();
+    const categories = await Category.publicList({
+        filter: ['Type=1'] 
+    });
 
     return {
         props: {

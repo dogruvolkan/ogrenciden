@@ -10,5 +10,6 @@ export * as Callback from './lib/callback';
 export * as Role from './lib/role';
 export * as City from './lib/cities';
 export * as SecondHands from './lib/secondhands';
+export * as BooksAndNotes from './lib/booksandnotes';
 export * as Students from './lib/students';
 export * as Universities from './lib/universities'

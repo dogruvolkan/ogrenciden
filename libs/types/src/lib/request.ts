@@ -17,6 +17,7 @@ export interface Request {
     StudentID: number;
     RequestStartDate: string;
     RequestEndDate: string;
+    User: Users.User;
 }
 
 export async function get(id: number | string) {

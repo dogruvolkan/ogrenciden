@@ -1,22 +1,23 @@
-import { GetServerSideProps } from "next";
-import { SecondHands } from '@ogrenciden/types';
 import { css } from "@emotion/react";
-import { SecondHandNoticeCard } from "@ogrenciden/components";
+import { SecondHands } from "@ogrenciden/types";
+import {SecondHandNoticeCard} from "libs/components/src/lib/components/notices/secondHands/SecondHandNoticeCard";
+import { GetServerSideProps } from "next";
 
-export interface Props {
-    secondHand : SecondHands.SecondHand[];
+
+
+interface Props {
+    secondHandNotices:SecondHands.SecondHand[];
 }
 
-export const Notices = (props: Props) => {
-    const { secondHand } = props;
-
-    console.log(secondHand)
+export const MyNotices = (props:Props) =>{
+    const {secondHandNotices} = props
+    console.log(secondHandNotices)
     return(
         <div css={containerCss}>
            <div css={secondHandNoticeContainerCss}>
             <h1>İkinci El İlanlarım</h1>
                 <div css={secondHandNoticeCss}>
-                    {secondHand?.map((notice) => {
+                    {secondHandNotices?.map((notice) => {
                         return (
                             <SecondHandNoticeCard secondHandNotice={notice} key={notice.ID}/>
                         )
@@ -26,7 +27,7 @@ export const Notices = (props: Props) => {
            <div css={secondHandNoticeContainerCss}>
             <h1>Kitap & Not İlanlarım</h1>
                 <div css={secondHandNoticeCss}>
-                    {secondHand?.map((notice) => {
+                    {secondHandNotices?.map((notice) => {
                         return (
                             <SecondHandNoticeCard secondHandNotice={notice} key={notice.ID}/>
                         )
@@ -36,7 +37,7 @@ export const Notices = (props: Props) => {
            <div css={secondHandNoticeContainerCss}>
             <h1>Ev & Ev Arkadaşı İlanlarım</h1>
                 <div css={secondHandNoticeCss}>
-                    {secondHand?.map((notice) => {
+                    {secondHandNotices?.map((notice) => {
                         return (
                             <SecondHandNoticeCard secondHandNotice={notice} key={notice.ID}/>
                         )
@@ -47,12 +48,11 @@ export const Notices = (props: Props) => {
     )
 }
 
-
 const containerCss = css`
     display:flex;
     justify-content:center;
-    flex-direction:column;
     align-items:center;
+    flex-direction:column;
     flex-wrap:wrap;
     gap:40px;
     padding:20px;
@@ -78,16 +78,26 @@ const secondHandNoticeCss = css `
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    const jwt = context.req.cookies['jwt'];
 
-    const secondHand = await SecondHands.publicList({
-        filter: ['Published=true']
+    const secondHandNotices = await SecondHands.mySecondHandNotices({
+        headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
     })
+
+    if (!jwt) {
+        return {
+          notFound: true,
+        };
+      }
+
 
     return {
         props: {
-            secondHand: secondHand
+            secondHandNotices: secondHandNotices
         }
     }
 }
 
-export default Notices;
+export default MyNotices;

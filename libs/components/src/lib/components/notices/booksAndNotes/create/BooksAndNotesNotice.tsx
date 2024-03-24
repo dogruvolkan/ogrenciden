@@ -1,42 +1,28 @@
 /** @jsxImportSource @emotion/react */
-import { Category, City, SecondHands, Universities, } from "@ogrenciden/types";
-import SelectBox from "../../form/SelectBox";
-import Input from "../../form/Input";
+import { BooksAndNotes, City, SecondHands, Universities, } from "@ogrenciden/types";
+import SelectBox from "../../../form/SelectBox";
+import Input from "../../../form/Input";
 import { css } from "@emotion/react";
-import Textarea from "../../form/Textarea";
-import ImgUpload from "../../form/ImgUpload";
-import Button from "../../button/Button";
+import Textarea from "../../../form/Textarea";
+import ImgUpload from "../../../form/ImgUpload";
+import Button from "../../../button/Button";
 import { useState } from "react";
 import  { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
- 
+
 interface Props {
-    categories: Category.Category[];
     cities:City.City[];
     universities:Universities.University[];
 }
 
-export const SecondHandsNotice = (props:Props) => {
-    const {cities , categories,universities} = props;
+export const BooksAndNotesNotice = (props:Props) => {
+    const {cities,universities} = props;
 
-    const noticeType =[
-        {ID:1 , Name :"İkinci el"},
-        {ID:2 , Name : "Sıfır"}
-    ]
-
-    const currencies = [
-        {ID:1 , Name :"USD"},
-        {ID:2 , Name : "EUR"},
-        {ID:1 , Name :"TRY"},
-        {ID:2 , Name : "GBP"}
-    ]
-
-    const [notice , setNotice] = useState<Partial<SecondHands.SecondHand> | undefined>({
+    const [notice , setNotice] = useState<Partial<BooksAndNotes.BooksAndNotes> | undefined>({
         NoticeType: "",
         Title: "",
-        CategoryID: 0,
         Price: 0,
         PriceType: "",
         CityID: 0,
@@ -56,13 +42,6 @@ export const SecondHandsNotice = (props:Props) => {
         setNotice({
             ...notice,
             Title: e.target.value
-        });
-    }
-
-    const handleCategories = (option: number) => {
-        setNotice({
-            ...notice,
-            CategoryID: Number(option)
         });
     }
 
@@ -105,7 +84,7 @@ export const SecondHandsNotice = (props:Props) => {
     }
 
     const createNotice = () => {
-        SecondHands.create(notice as SecondHands.SecondHand).then((res :any) =>{
+        BooksAndNotes.create(notice as BooksAndNotes.BooksAndNotes).then((res :any) =>{
             if (res?.error) {
                 toast.warning(JSON.parse(res.error).message, {
                     autoClose: 2000,
@@ -123,20 +102,20 @@ export const SecondHandsNotice = (props:Props) => {
     }
 
     const router = useRouter();
+
     return(
         <>
         <div css={containerCss}>
-            <h1>2.El Eşya İlanı Oluştur</h1>
-             <SelectBox options={noticeType} onSelectOption={handleNoticeType} label={"İlan Türü:"} optionLabel="Name" optionValue="ID" />
-             <Input type={"text"} value={notice?.Title || ""} onChange={handleTitle} label={"Başlık:"} placeholder={"Laptop"} />
-            <SelectBox options={categories} onSelectOption={handleCategories} label={"Kategori:"} optionLabel="Name" optionValue="ID" />
+            <h1>Kitap & Not İlanı Oluştur</h1>
+             <SelectBox options={SecondHands.noticeType} onSelectOption={handleNoticeType} label={"İlan Türü:"} optionLabel="Name" optionValue="ID" />
+             <Input type={"text"} value={notice?.Title || ""} onChange={handleTitle} label={"Başlık:"} placeholder={"Bilgisayar Bilimine Giriş Kitabı"} />
             <div css={priceCss}>
                 <Input type={"text"} value={notice?.Price|| ""} onChange={handlePrice} label={"Fiyat:"} placeholder={"25.045"} />
-                <SelectBox options={currencies} onSelectOption={handlePriceType} label={"Para Birimi:"} optionLabel="Name" optionValue="ID" />
+                <SelectBox options={SecondHands.currencies} onSelectOption={handlePriceType} label={"Para Birimi:"} optionLabel="Name" optionValue="ID" />
             </div>
             <SelectBox options={cities} onSelectOption={handleCities} label={"Şehir:"} optionLabel="Name" optionValue="ID" />
             <SelectBox options={filteredUniversities} onSelectOption={handleUniversities} label={"Üniversite"} optionLabel="Name" optionValue="ID" />
-            <Textarea value={notice?.Description || ""} onChange={handleDescription} label={"Açıklama:"} placeholder="örn:i7 9.nesil 16gb ram laptop" />
+            <Textarea value={notice?.Description || ""} onChange={handleDescription} label={"Açıklama:"} placeholder="Bilgisayar mühendisliği giriş kitabıdır." />
             <ImgUpload onImageSelect={undefined} labelText={"Görsel:"}/>
             <Button size={"lg"} onClick={createNotice}>Yayınla</Button>  
         </div>
@@ -145,8 +124,6 @@ export const SecondHandsNotice = (props:Props) => {
     )
 }
 
-export default SecondHandsNotice;
-
 const containerCss = css`
     display:flex;
     flex-direction:column;
@@ -154,7 +131,6 @@ const containerCss = css`
     padding:20px;
     border:1px solid lightgray;
     border-radius:20px;
-    width:30%;
 `
 
 const priceCss = css `
@@ -162,3 +138,5 @@ const priceCss = css `
     gap:30px;
     width:100%;
 `
+
+export default BooksAndNotes;

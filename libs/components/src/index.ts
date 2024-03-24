@@ -15,11 +15,12 @@ import SelectBox from './lib/components/form/SelectBox'
 import DatePicker from './lib/components/form/DatePicker'
 import ImgUpload from './lib/components/form/ImgUpload'
 import * as AuthContext from './lib/contexts/AuthContext';
-import BooksAndNotes from './lib/components/notices/booksAndNotes/BooksAndNotes'
+import BooksAndNotesNotice from './lib/components/notices/booksAndNotes/create/BooksAndNotesNotice'
 import HouseAndHouseBody from './lib/components/notices/houseAndHouseBody/HouseAndHouseBody'
 import WorkAndInternship from './lib/components/notices/workAndInternship/WorkAndInternship'
-import SecondHands from './lib/components/notices/secondHands/SecondHandsNotice'
-
+import SecondHands from './lib/components/notices/secondHands/create/SecondHandsNotice'
+import SecondHandNoticeCard from './lib/components/notices/secondHands/SecondHandNoticeCard'
+import SecondHandNoticeDetailCard from './lib/components/notices/secondHands/SecondHandNoticeDetailCard'
 
 
 
@@ -40,7 +41,9 @@ export { SelectBox }
 export { DatePicker }
 export { ImgUpload }
 export {AuthContext}
-export {BooksAndNotes}
+export {BooksAndNotesNotice}
 export {HouseAndHouseBody}
 export {SecondHands}
 export {WorkAndInternship}
+export {SecondHandNoticeCard}
+export {SecondHandNoticeDetailCard}

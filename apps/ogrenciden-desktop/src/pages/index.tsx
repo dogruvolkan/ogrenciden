@@ -16,6 +16,8 @@ export function Index() {
   return (
     <div css={containerCSS}>
       <Carousel images={images} />
+      <h1>Talepler</h1>
+      <h1>İLANLAR</h1>
       <HowItWorks />
       <Statistics />
       <Faq />

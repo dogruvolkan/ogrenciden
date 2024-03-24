@@ -6,14 +6,12 @@ import { University } from "./universities";
 import { User } from "./users";
 
 
-export interface SecondHand {
+export interface BooksAndNotes {
     ID: number;
     CreatedAt: string;
     UpdatedAt: string;
     NoticeType: string;
     Title: string;
-    Category: Category;
-    CategoryID: number;
     Price: number;
     PriceType: string;
     City: City;
@@ -42,27 +40,27 @@ export const currencies = [
 
 
 export async function get(id: number | string) {
-    return await request<SecondHand>(`public/secondhand/${id}`, {
+    return await request<BooksAndNotes>(`public/booksandnotes/${id}`, {
         method: 'GET'
     })
 }
 
 export async function publicList(qapi?: QApis.QApi) {
-    return await request<SecondHand[]>(`public/secondhand${QApis.toQueryParam(qapi)}`, {
+    return await request<BooksAndNotes[]>(`public/booksandnotes${QApis.toQueryParam(qapi)}`, {
         method: 'GET'
     })
 }
 
 
-export async function create(value: SecondHand) {
-    return await request<never>(`students/secondhand`, {
+export async function create(value: BooksAndNotes) {
+    return await request<never>(`students/booksandnotes`, {
         method: 'POST',
         body: JSON.stringify(value)
     })
 }
 
 export async function mySecondHandNotices(options?: RequestInit, qapi?: QApis.QApi) {
-    return await request<SecondHand[]>(`students/secondhand/mine${QApis.toQueryParam(qapi)}`, {
+    return await request<BooksAndNotes[]>(`students/booksandnotes/mine${QApis.toQueryParam(qapi)}`, {
         method: 'GET',
         ...options
     })

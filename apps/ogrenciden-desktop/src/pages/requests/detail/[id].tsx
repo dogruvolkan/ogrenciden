@@ -29,15 +29,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const request = await UserRequest.get(id as string);
 
-    if (!request) {
-        return {
-            redirect: {
-                destination: '/requests',
-                permanent: false,
-            },
-        };
-    }
-
     return {
         props: {
             request: request

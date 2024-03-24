@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState } from "react";
 import { AiOutlineUp, AiOutlineDown } from "react-icons/ai";

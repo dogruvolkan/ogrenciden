@@ -20,7 +20,7 @@ const Header = () => {
 
     const onLogout = () => {
         Auth.logout().then(() => {
-            router.reload()
+            router.reload();
         }
         ).catch((err) => {
             alert(err)
@@ -31,7 +31,7 @@ const Header = () => {
     return (
         <header>
             <div css={headerContainer}>
-                <a href='/'><img src="./logo.png" alt="logo" /></a>
+                <a href='/'><img src="/logo.png" alt="logo" /></a>
                 <nav >
                     <ul css={navbarUlCss}>
                         <li><a href="/">KİTAP & NOT</a></li>

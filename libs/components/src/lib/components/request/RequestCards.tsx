@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { UserRequest, Utils } from "@ogrenciden/types";
 import router from "next/router";
@@ -6,15 +7,14 @@ import { useCallback } from "react";
 
 export interface Props {
     request: UserRequest.Request;
-    url?: any;
 }
 
 export const RequestCards = (props: Props) => {
-    const { request, url } = props;
+    const { request } = props;
 
     const handleRequest = useCallback(() => {
         if (request.ID) {
-            router.push(`/requests/${request.ID}`)
+            router.push(`/requests/detail/${request.ID}`)
         } else {
             router.push(`/requests`)
         }

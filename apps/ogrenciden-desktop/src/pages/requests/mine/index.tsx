@@ -14,13 +14,15 @@ export const MyRequests = (props:Props) => {
   
     return (
         <div css={containerCss}>
+            <div css={requestContainerCss}>
             <h1>Taleplerim</h1>
-            <div>
+            <div css={requestCss}>
                 {requests?.map((request) => {
                     return (
                         <RequestCards key={request.ID} request={request}/>
                     )
                 })}
+            </div>
             </div>
         </div>
     )
@@ -54,9 +56,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const containerCss = css`
-    margin: 20px auto;
-    width: 100%;
-    max-width: 90%;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:40px;
+    padding:20px;
 
     h1{
         font-size: 2em;
@@ -69,4 +73,17 @@ const containerCss = css`
             vertical-align: middle;
         }
     }
+`
+
+const requestContainerCss = css `
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+`
+
+const requestCss = css`
+    display:flex;
+    gap:30px;
+    align-items:center;
+    justify-content:center;
 `

@@ -5,6 +5,7 @@ import (
 	"ogrenciden/apps/api/internal/features/categories"
 	"ogrenciden/apps/api/internal/features/cities"
 	"ogrenciden/apps/api/internal/features/companies"
+	booksandnotes "ogrenciden/apps/api/internal/features/notice/booksAndnotes"
 	secondhand "ogrenciden/apps/api/internal/features/notice/secondHand"
 	"ogrenciden/apps/api/internal/features/requests"
 	"ogrenciden/apps/api/internal/features/roles"
@@ -30,4 +31,5 @@ var models = []interface{}{
 	&cities.City{},
 	&secondhand.SecondHand{},
 	&universities.University{},
+	&booksandnotes.BooksAndNotes{},
 }

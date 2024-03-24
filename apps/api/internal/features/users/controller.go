@@ -28,8 +28,6 @@ func (res *controller) me(ctx *fiber.Ctx) error {
 
 	userID:= claims.UserID
 
-
-
 	user, err := res.service.Read(ctx.UserContext(),uint(userID))
 
 	if err != nil {
