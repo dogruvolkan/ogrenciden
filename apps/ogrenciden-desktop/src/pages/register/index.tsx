@@ -15,7 +15,6 @@ interface Props {
 export const Register = (props:Props) => {
 
   const {roles} = props;
-  console.log("roles", roles)
 
     const [selectedRole , setSelectedRole] = useState<Users.Role>(Users.Role.STUDENT)
     const [rePassword , setRePassword] = useState<string>("")
@@ -83,7 +82,6 @@ export const Register = (props:Props) => {
 
 
       const handleOptionSelect = (option: number) => {
-        console.log("option", option)
         setRegister({
             ...register,
             Role: Number(option)

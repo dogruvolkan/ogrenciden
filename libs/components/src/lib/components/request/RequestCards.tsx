@@ -12,8 +12,6 @@ export interface Props {
 export const RequestCards = (props: Props) => {
     const { request, url } = props;
 
-    console.log("gelen2", url)
-
     const handleRequest = useCallback(() => {
         if (request.ID) {
             router.push(`/requests/${request.ID}`)

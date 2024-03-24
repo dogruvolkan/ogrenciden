@@ -18,15 +18,12 @@ const Header = () => {
 
     const authContext = useContext(AuthContext)
 
-    console.log(authContext)
-
     const onLogout = () => {
         Auth.logout().then(() => {
             router.reload()
         }
         ).catch((err) => {
             alert(err)
-            console.log(err)
         }
         )
     }
@@ -55,7 +52,7 @@ const Header = () => {
                                         </> :
                                         <>                                      
                                             <li><a href="/dsds">Profilim</a></li>
-                                            <li><a href="/dsds">İlanlarım</a></li>
+                                            <li><a href="/notices/mine">İlanlarım</a></li>
                                             <li><a href="/requests/mine">Taleplerim</a></li>
                                             <li><a href="/dsds">Favorilerim</a></li>
                                             <li ><button css={logoutBtnCss}  onClick={onLogout}>Çıkış Yap</button></li>

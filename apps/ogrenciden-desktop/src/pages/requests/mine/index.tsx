@@ -38,7 +38,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             Authorization: `Bearer ${jwt}`,
           },
     })
-    console.log("gelen", requests)
 
     if (!jwt) {
         return {

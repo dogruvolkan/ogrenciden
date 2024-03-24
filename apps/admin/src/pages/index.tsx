@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-import { Category } from '@ogrenciden/types';
-import { useEffect } from 'react';
 
 const StyledPage = styled.div`
   .page {
@@ -9,11 +7,6 @@ const StyledPage = styled.div`
 
 export function Index() {
 
-  useEffect(() => {
-    Category.publicList().then((res) => {
-      console.log(res);
-    });
-  }, [])
 
   return (
    <div>

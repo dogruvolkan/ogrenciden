@@ -10,7 +10,6 @@ export interface Props {
 
 export const Requests = (props: Props) => {
     const { requests, url } = props;
-    console.log("gelen", url)
     return (
         <div css={requestCss}>
             <h1>Talepler   <span>({requests.length} talep bulundu)</span></h1>
@@ -54,7 +53,6 @@ const requestContainerCss = css`
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const url = context.resolvedUrl;
-    console.log("gelen", url)
 
     const requests = await UserRequest.publicList({
         filter: ['Published=true']
@@ -63,10 +61,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const id = context.params?.id;
 
     const request = await UserRequest.get(id as string);
-    console.log("gelen", request)
 
     if (!request) {
-        console.log("girdi")
         return {
             redirect: {
                 destination: '/requests',

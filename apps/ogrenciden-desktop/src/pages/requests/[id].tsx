@@ -28,10 +28,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const id = context.params?.id;
 
     const request = await UserRequest.get(id as string);
-    console.log("gelen", request)
 
     if (!request) {
-        console.log("girdi")
         return {
             redirect: {
                 destination: '/requests',

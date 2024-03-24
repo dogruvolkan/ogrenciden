@@ -106,7 +106,6 @@ export const SecondHandsNotice = (props:Props) => {
 
     const createNotice = () => {
         SecondHands.create(notice as SecondHands.SecondHand).then((res :any) =>{
-            console.log("res", res)
             if (res?.error) {
                 toast.warning(JSON.parse(res.error).message, {
                     autoClose: 2000,
@@ -124,10 +123,6 @@ export const SecondHandsNotice = (props:Props) => {
     }
 
     const router = useRouter();
-
-    console.log(universities)
-   
-
     return(
         <>
         <div css={containerCss}>
@@ -165,12 +160,5 @@ const containerCss = css`
 const priceCss = css `
     display:flex;
     gap:30px;
-
-    input{
-        width:260px;
-    }
-
-    select{
-        width:260px;
-    }
+    width:100%;
 `

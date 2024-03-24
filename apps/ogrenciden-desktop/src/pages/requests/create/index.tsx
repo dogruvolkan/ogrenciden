@@ -72,7 +72,6 @@ export const CreateRequestContainer = (props: Props) => {
 
     const CreateRequest = () => {
         UserRequest.create(requests as UserRequest.Request).then((res: any) => {
-            console.log("res", res)
             if (res?.error) {
                 toast.warning(JSON.parse(res.error).message, {
                     autoClose: 2000,
