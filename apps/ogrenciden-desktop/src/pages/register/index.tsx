@@ -5,6 +5,7 @@ import { sha256 } from "js-sha256";
 import { GetServerSideProps } from "next";
 import router from "next/router";
 import { useCallback, useState } from "react";
+import { toast } from "react-toastify";
 
 
 interface Props {
@@ -44,7 +45,10 @@ export const Register = (props:Props) => {
             Role: selectedRole,
           }).then((res) => {
             if (!res?.error) {
-              alert('Kayıt başarılı');
+              toast.success("Kayıt Başarılı", {
+                autoClose: 2000,
+            }
+            );
               setRegister({
                 FirstName: '',
                 LastName: '',
@@ -53,7 +57,9 @@ export const Register = (props:Props) => {
                 Role: Users.Role.STUDENT,
               });
               setRePassword('');
-              router.push("/login")
+              setTimeout(() => {
+                router.push("/login")
+            }, 2000);
             } else {
               alert(res.error.message);
             }

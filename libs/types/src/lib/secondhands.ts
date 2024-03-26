@@ -29,15 +29,15 @@ export interface SecondHand {
 
 
 export const noticeType =[
-    {ID:1 , Name :"İkinci el"},
-    {ID:2 , Name : "Sıfır"}
+    {ID:0 , Name :"İkinci el"},
+    {ID:1 , Name : "Sıfır"}
 ]
 
 export const currencies = [
     {ID:1 , Name :"USD"},
     {ID:2 , Name : "EUR"},
-    {ID:1 , Name :"TRY"},
-    {ID:2 , Name : "GBP"}
+    {ID:3 , Name :"TRY"},
+    {ID:4 , Name : "GBP"}
 ]
 
 

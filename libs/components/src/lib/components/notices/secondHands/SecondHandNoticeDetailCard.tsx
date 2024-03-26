@@ -9,7 +9,6 @@ export interface Props {
 export const SecondHandNoticeDetailCard = (props: Props) => {
     const { secondHands } = props;
 
-
     return (
         <div css={secondHandsContainer}>
             <div>

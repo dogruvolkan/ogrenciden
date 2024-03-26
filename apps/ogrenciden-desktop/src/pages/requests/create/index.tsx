@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { Button, DatePicker, Input, SelectBox, Textarea } from "@ogrenciden/components";
+import { Button, DatePicker, ImgUpload, Input, SelectBox, Textarea } from "@ogrenciden/components";
 import { UserRequest, Category, City } from "@ogrenciden/types";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
@@ -99,7 +99,7 @@ export const CreateRequestContainer = (props: Props) => {
                 <Textarea value={requests?.Description || ""} onChange={handleTextareaChange} label={"Açıklama:"} placeholder="örn:Hukuka giriş kitabına ihtiyacım var." />
                 <DatePicker onSelectDate={handleDateStartSelect} label={"Başlangıç Tarih:"} />
                 <DatePicker onSelectDate={handleDateEndSelect} label={"Bitiş Tarih:"} />
-                {/* <ImgUpload onImageSelect={handleImageSelect} /> */}
+                <ImgUpload onImageSelect={undefined} />
                 <Button size={"lg"} onClick={CreateRequest}>Oluştur</Button>
             </div>
             <ToastContainer />
