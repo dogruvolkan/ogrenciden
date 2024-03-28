@@ -120,6 +120,7 @@ export const Register = (props:Props) => {
 export const getServerSideProps :GetServerSideProps = async () => {
 
   const roles = await Role.publicList({filter: ['ID>1']});
+  console.log(roles);
 
     return {
         props: {
