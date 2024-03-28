@@ -89,6 +89,7 @@ export const CreateRequestContainer = (props: Props) => {
     }
 
     const router = useRouter();
+    console.log(requests)
 
     return (
         <div css={createRequestContainerCss}>
