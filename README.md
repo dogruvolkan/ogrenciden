@@ -18,3 +18,5 @@ npx nx run ogrenciden-desktop:serve <br /><br />
 
 ## run admin <br />
 npx nx run admin:serve <br /><br />
+
+//deneme
