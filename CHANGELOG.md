@@ -1,29 +1,37 @@
-# Changelog
 
-## 1.0.7
+## 1.0.1
+## 1.1.7
 
 ### Bug Fixes
  * bu bir deneme
-## 1.0.6
+## 1.1.6
 
 ### Bug Fixes
  * add search input
-## 1.0.5
+## 1.1.5
 
 ### Bug Fixes
  * some fix1
-## 1.0.4
+## 1.1.4
 
 ### Bug Fixes
  * some fix2
-## 1.0.3
+## 1.1.3
 
 ### Bug Fixes
  * some fix3
-## 1.0.2
+## 1.1.2
 
 ### Bug Fixes
- * bu bir deneme
-## Bug Fixes 1.0.1
+ * some fixe
+## 1.1.1
 
-- add search input
+### Bug Fixes
+ * some fix2
+## 1.1.0
+
+### Features
+ * new features
+
+### Bug Fixes
+ * console add
