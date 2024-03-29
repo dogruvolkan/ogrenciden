@@ -1,9 +1,6 @@
 # Change Log
 All notable changes to the "crates" extension will be documented in this file.
 ## 1.0.0
-### Documentation
- * helllo
-## 1.0.0
 ### BREAKING CHANGES
  * merhaba selam
  * hellloooo
@@ -12,6 +9,8 @@ All notable changes to the "crates" extension will be documented in this file.
  * it is very important
 ### Features
  * new features
+### Code Refactoring
+ * selammm
 ### Bug Fixes
  * selam bu fix
  * console add
@@ -23,6 +22,7 @@ All notable changes to the "crates" extension will be documented in this file.
  * add search input
  * bu bir deneme
 ### Documentation
+ * helllo
  * hello
 ## [0.6.4](https://github.com/filllabs/crates/compare/v0.6.3...v0.6.4) (2024-03-26)
 ### Continuous Integration
