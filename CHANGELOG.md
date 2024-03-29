@@ -1,5 +1,5 @@
 
-## 1.0.0 (2024-03-29)
+## 1.0.1 (2024-03-29)
 ### Documentation
 ### BREAKING CHANGES
  * merhaba selam
@@ -14,6 +14,7 @@
 ### Reverts
  * hellloooooo
 ### Bug Fixes
+ * helloooo32
  * some fiz deneme
  * selam
  * selam bu fix
