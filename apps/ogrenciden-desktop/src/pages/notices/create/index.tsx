@@ -16,6 +16,7 @@ interface Props {
 
 export const CreateNoticesContainer = (props:Props) =>{
     console.log("selam");
+    console.log("selam2")
 
     const {categories ,cities,universities} = props;
 
