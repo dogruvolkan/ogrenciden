@@ -1,13 +1,8 @@
 
 ## 1.0.1 (2024-03-29)
-## 2.0.0 (2024-03-29)
-### BREAKING CHANGES
- * update big
-## 1.0.1 (2024-03-29)
-### Bug Fixes
- * bu bir fix
 ### Documentation
 ### BREAKING CHANGES
+ * update big
  * merhaba selam
  * hellloooo
  * some fix
@@ -16,10 +11,12 @@
 ### Styles
  * bir farklılık olsun
 ### Code Refactoring
+ * some good fix
  * selammm
 ### Reverts
  * hellloooooo
 ### Bug Fixes
+ * bu bir fix
  * helloooo32
  * some fiz deneme
  * selam
