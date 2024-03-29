@@ -1,5 +1,35 @@
 # Change Log
 All notable changes to the "crates" extension will be documented in this file.
+## 1.0.0 (2024-03-29)
+### BREAKING CHANGES
+ * merhaba selam
+ * hellloooo
+ * some fix
+ * hello it is cat
+ * it is very important
+### Code Refactoring
+ * selammm
+### Reverts
+ * hellloooooo
+### Bug Fixes
+ * selam
+ * selam bu fix
+ * console add
+ * some fix2
+ * some fixe
+ * some fix3
+ * some fix2
+ * some fix1
+ * add search input
+ * bu bir deneme
+### Features
+ * helloo
+ * new features
+### Documentation
+ * bu bir deneme
+ * merhabababbaba
+ * helllo
+ * hello
 ## 1.0.0
 ### Reverts
  * hellloooooo
