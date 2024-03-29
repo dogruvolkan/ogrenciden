@@ -1,5 +1,8 @@
 
 ## 1.0.1 (2024-03-29)
+## 2.0.0 (2024-03-29)
+### BREAKING CHANGES
+ * change versionn
 ## 1.0.2 (2024-03-29)
 ### Bug Fixes
  * hellolollol
