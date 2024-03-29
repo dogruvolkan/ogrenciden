@@ -1,7 +1,8 @@
 # Change Log
 All notable changes to the "crates" extension will be documented in this file.
-## [object Object]
+## 1.0.0
 ### BREAKING CHANGES
+ * hellloooo
  * some fix
  * hello it is cat
  * it is very important
