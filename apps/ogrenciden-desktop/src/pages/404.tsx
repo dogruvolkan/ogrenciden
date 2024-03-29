@@ -12,6 +12,7 @@ export const NotFoundPage = () => {
             <p>sddsdsds</p>
             <p>sddsdsds</p>
             <p>sddsdsds</p>
+            <p>sddsdsds</p>
         </div>
     )
 }
