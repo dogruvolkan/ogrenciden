@@ -14,6 +14,7 @@
 ### Reverts
  * hellloooooo
 ### Bug Fixes
+ * some fiz deneme
  * selam
  * selam bu fix
  * console add
