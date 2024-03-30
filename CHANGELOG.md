@@ -1,5 +1,8 @@
 
 ## 1.0.1 (2024-03-29)
+## 0.0.3 (2024-03-30)
+### BREAKING CHANGES
+ * bu bir versiyon artışı
 ## 0.0.1 (2024-03-29)
 ### BREAKING CHANGES
  * change versionn
