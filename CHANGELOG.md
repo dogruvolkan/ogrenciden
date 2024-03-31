@@ -1,5 +1,8 @@
 
 ## 0.0.1 (2024-03-31)
+## 0.0.3 (2024-03-31)
+### Bug Fixes
+ * bu bir fix
 ### Documentation
 ### BREAKING CHANGES
  * bu bir versiyon artışı
