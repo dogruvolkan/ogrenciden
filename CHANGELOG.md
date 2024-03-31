@@ -1,10 +1,9 @@
 
-## 0.0.1 (2024-03-30)
-## 0.0.2 (2024-03-31)
-### BREAKING CHANGES
- * değişti
+## 0.0.1 (2024-03-31)
 ### Documentation
 ### BREAKING CHANGES
+ * bu bir versiyon artışı
+ * değişti
  * ikicnci version artışı
  * bu bir versiyon artışı
  * change versionn
