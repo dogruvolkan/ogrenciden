@@ -1,10 +1,8 @@
 
 ## 0.0.1 (2024-03-31)
-## 1.0.0 (2024-03-31)
-### BREAKING CHANGES
- * deneme
 ### Documentation
 ### BREAKING CHANGES
+ * deneme
  * deneme
  * versiyon artışı
  * ünlemli
@@ -29,10 +27,11 @@
 ### Styles
  * bir farklılık olsun
 ### Code Refactoring
+ * patch değişsin
  * some good fix
  * selammm
 ### Reverts
- * denemes
+ * deneme
  * remove some things
  * hellloooooo
 ### Bug Fixes
