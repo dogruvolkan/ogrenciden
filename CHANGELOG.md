@@ -1,5 +1,5 @@
 
-## 0.0.0 (2024-03-31)
+## 0.0.1 (2024-03-31)
 ### Documentation
 ### BREAKING CHANGES
  * deneme
@@ -29,6 +29,7 @@
  * some good fix
  * selammm
 ### Reverts
+ * deneme
  * remove some things
  * hellloooooo
 ### Bug Fixes
