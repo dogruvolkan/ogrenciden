@@ -1,10 +1,8 @@
 
 ## 0.0.1 (2024-03-31)
-## 0.0.3 (2024-03-31)
-### Bug Fixes
- * bu bir fix
 ### Documentation
 ### BREAKING CHANGES
+ * versiyon
  * bu bir versiyon artışı
  * değişti
  * ikicnci version artışı
@@ -27,6 +25,7 @@
  * remove some things
  * hellloooooo
 ### Bug Fixes
+ * bu bir fix
  * hellolollol
  * bu bir fix
  * helloooo32
