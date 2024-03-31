@@ -2,6 +2,7 @@
 ## 0.0.1 (2024-03-31)
 ### Documentation
 ### BREAKING CHANGES
+ * major değişiklik
  * major değiş
  * deneme
  * deneme
