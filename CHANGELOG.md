@@ -1,5 +1,8 @@
 
 ## 0.0.1 (2024-03-31)
+## 1.0.0 (2024-03-31)
+### BREAKING CHANGES
+ * deneme
 ### Documentation
 ### BREAKING CHANGES
  * deneme
