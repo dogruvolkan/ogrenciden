@@ -1,13 +1,8 @@
 
 ## 0.0.1 (2024-03-31)
-## 0.1.0 (2024-03-31)
-### Features
- * minor değiş
-## 0.0.2 (2024-03-31)
-### Bug Fixes
- * patch değiş
 ### Documentation
 ### BREAKING CHANGES
+ * major değiş
  * deneme
  * deneme
  * versiyon artışı
@@ -41,6 +36,7 @@
  * remove some things
  * hellloooooo
 ### Bug Fixes
+ * patch değiş
  * deneme
  * bu bir fix
  * hellolollol
@@ -58,6 +54,7 @@
  * add search input
  * bu bir deneme
 ### Features
+ * minor değiş
  * deneme
  * helloo
  * new features
