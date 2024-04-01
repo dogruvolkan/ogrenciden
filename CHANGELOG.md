@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1 (2024-04-01)
+### Documentation
+ * patch
 ## 1.1.0 (2024-04-01)
 ### Features
  * minor
