@@ -1,5 +1,8 @@
 # Changelog
 
+## 12.0.0 (02.04.2024)
+### BREAKING CHANGES
+* [5e31805](https://github.com/dogruvolkan/ogrenciden/commit/5e31805392280e4721b81f7b669acb5214a9216f) bu bir major
 ## 11.1.1 (02.04.2024)
 ### Bug Fixes
 * [f89988f](https://github.com/dogruvolkan/ogrenciden/commit/f89988f790e975457557c2e4a8e3ab562db1446b) bu ikinci bir fix
