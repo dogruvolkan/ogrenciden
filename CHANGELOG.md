@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 10.0.0 - ()
+### BREAKING CHANGES
+* [53f1f22](https://github.com/dogruvolkan/ogrenciden/commit/53f1f225c4874a649c131c867143d307acdf741c) major değişiklik oldu
 ## Version 9.2.0 - ()
 ### Features
 * [827ac1f](https://github.com/dogruvolkan/ogrenciden/commit/827ac1fc2c6612953d683b748920bcbeb95e9090) minor
