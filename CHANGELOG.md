@@ -1,5 +1,8 @@
 # Changelog
 
+## 10.1.2 (2024-04-01)
+### Bug Fixes
+* [803df70](https://github.com/dogruvolkan/ogrenciden/commit/803df70a7b70a81ddb531dc31e42d2707724694b) 2 nisan yeni bir commit
 ## Version 10.1.1 - (2024-04-01)
 ### Bug Fixes
 * [9998802](https://github.com/dogruvolkan/ogrenciden/commit/9998802e0cb7502507d59ac927e3db6a7671e35e) 2 nisan commit
