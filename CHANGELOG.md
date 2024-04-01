@@ -1,5 +1,10 @@
 # Changelog
 
+## 8.2.0 (2024-04-01)
+### Features
+[](commmit) * 11111
+### Bug Fixes
+[](commmit) * 2222
 ## 8.1.0 (2024-04-01)
 ### Bug Fixes
 [](commmit) * sonr abunu attım fix
