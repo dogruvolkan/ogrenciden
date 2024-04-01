@@ -2,6 +2,7 @@
 ## 0.0.1 (2024-04-01)
 ### Documentation
 ### BREAKING CHANGES
+ * major değişklik
  * major deği
  * major
  * major
