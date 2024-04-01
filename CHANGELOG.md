@@ -1,13 +1,8 @@
+# Changelog
 
 ## 0.0.1 (2024-04-01)
-## 1.0.0 (2024-04-01)
 ### BREAKING CHANGES
  * major
-## 0.1.0 (2024-04-01)
-### Features
- * minor
-### Documentation
-### BREAKING CHANGES
  * major
  * major
  * major
@@ -46,6 +41,7 @@
  * some good fix
  * selammm
 ### Reverts
+ * patch
  * patch değişklik
  * deneme
  * remove some things
@@ -72,12 +68,14 @@
  * add search input
  * bu bir deneme
 ### Features
+ * minor
  * minor değişklik
  * minor
  * minor değiş
  * deneme
  * helloo
  * new features
+### Documentation
  * bu bir deneme
  * merhabababbaba
  * helllo
