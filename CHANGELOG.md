@@ -1,5 +1,8 @@
 # Changelog
 
+## 9.1.0 (2024-04-01)
+### Features
+* 207e19e805c6e4be980dde412978a85fbcb5f5f6 https://github.com/dogruvolkan/ogrenciden/commit/207e19e805c6e4be980dde412978a85fbcb5f5f6 bu bir feat ekleme
 ## 9.0.1 (2024-04-01)
 ### Documentation
 * 007782b09f0a3400d9238f9478b547ac07761366 https://github.com/dogruvolkan/ogrenciden/commit/007782b09f0a3400d9238f9478b547ac07761366 bu bir docs ekleme
