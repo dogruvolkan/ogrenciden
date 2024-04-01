@@ -1,5 +1,10 @@
 # Changelog
 
+## 11.1.1 (02.04.2024)
+### Bug Fixes
+* [f89988f](https://github.com/dogruvolkan/ogrenciden/commit/f89988f790e975457557c2e4a8e3ab562db1446b) bu ikinci bir fix
+* [dfac8e3](https://github.com/dogruvolkan/ogrenciden/commit/dfac8e35ac4b4c0640aa8e742332fbe19772be58) bu bir fix
+## 11.1.1 (02.04.2024)
 ## 11.1.0 (02.04.2024)
 ### Features
 * [1a84fff](https://github.com/dogruvolkan/ogrenciden/commit/1a84fff89a24b1f47c8cc7b4107a5bd37b7d4ec3) bu bir minor
