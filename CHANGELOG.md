@@ -1,5 +1,8 @@
 # Changelog
 
+## 9.0.0 (2024-04-01)
+### BREAKING CHANGES
+* ae92ed1f6dc3889376e22d12015b00e218ff91ff major
 ## 8.2.1 (2024-04-01)
 ### Bug Fixes
 [](commmit) * patch
