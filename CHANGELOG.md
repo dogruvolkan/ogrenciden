@@ -1,5 +1,8 @@
 # Changelog
 
+## 9.1.1 (2024-04-01)
+### Bug Fixes
+* [(bcfcb20)](https://github.com/dogruvolkan/ogrenciden/commit/bcfcb20aed90707498f14f8e9459484ae3b5ae69) bu bir fix
 ## 9.1.0 (2024-04-01)
 ### Features
 * 207e19e805c6e4be980dde412978a85fbcb5f5f6 https://github.com/dogruvolkan/ogrenciden/commit/207e19e805c6e4be980dde412978a85fbcb5f5f6 bu bir feat ekleme
