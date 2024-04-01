@@ -36,7 +36,7 @@
 * 007782b09f0a3400d9238f9478b547ac07761366 https://github.com/dogruvolkan/ogrenciden/commit/007782b09f0a3400d9238f9478b547ac07761366 bu bir docs ekleme
 ## 9.0.0 (2024-04-01)
 ### BREAKING CHANGES
-* ae92ed1f6dc3889376e22d12015b00e218ff91ff major2
+* ae92ed1f6dc3889376e22d12015b00e218ff91ff major2s
 ## 8.2.1 (2024-04-01)
 ### Bug Fixes
 [](commmit) * patch
