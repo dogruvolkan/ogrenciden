@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0 (2024-04-01)
+### Features
+[](commmit) * bu bir minor
 ## 1.0.1 (2024-04-01)
 ### Documentation
 [](commmit) * patch
