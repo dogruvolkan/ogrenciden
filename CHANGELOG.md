@@ -1,5 +1,8 @@
 # Changelog
 
+## 8.2.1 (2024-04-01)
+### Bug Fixes
+[](commmit) * patch
 ## 8.2.0 (2024-04-01)
 ### Features
 [](commmit) * 11111
