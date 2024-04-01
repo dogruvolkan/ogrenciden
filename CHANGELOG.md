@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.0.0 (2024-04-01)
+### BREAKING CHANGES
+[](commmit) * major
 ## 6.4.1 (2024-04-01)
 ### Bug Fixes
 [](commmit) * patch
