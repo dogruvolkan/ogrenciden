@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.0 (2024-04-01)
+### BREAKING CHANGES
+[](commmit) * major
 ## 0.6.7 (2024-04-01)
 ### BREAKING CHANGES
 [](commmit) * major
