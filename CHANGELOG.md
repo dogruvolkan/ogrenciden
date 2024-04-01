@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.1 (2024-04-01)
+## 4.7.10 (2024-04-01)
 ### BREAKING CHANGES
  * major
  * major
@@ -51,6 +51,7 @@
  * remove some things
  * hellloooooo
 ### Bug Fixes
+ * version update
  * patch
  * patch
  * patch
