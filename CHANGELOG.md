@@ -1,13 +1,8 @@
 
-## 0.0.1 (2024-03-31)
-## 0.1.0 (2024-04-01)
-### Features
- * minor değişklik
-## 0.0.2 (2024-04-01)
-### Reverts
- * patch değişklik
+## 0.0.1 (2024-04-01)
 ### Documentation
 ### BREAKING CHANGES
+ * major deği
  * major
  * major
  * major değişiklik
@@ -41,6 +36,7 @@
  * some good fix
  * selammm
 ### Reverts
+ * patch değişklik
  * deneme
  * remove some things
  * hellloooooo
@@ -64,6 +60,7 @@
  * add search input
  * bu bir deneme
 ### Features
+ * minor değişklik
  * minor
  * minor değiş
  * deneme
