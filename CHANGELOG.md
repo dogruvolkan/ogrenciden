@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.0 (2024-04-01)
+### BREAKING CHANGES
+ * major
 ## 0.0.1 (2024-04-01)
 ### BREAKING CHANGES
  * major
@@ -8,7 +11,7 @@
  * major
  * major
  * major
- * major
+ * major<>
  * major değişklik
  * major deği
  * major
