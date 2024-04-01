@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.1.2 (2024-04-01)
+### Bug Fixes
+[](commmit) * patch
 ## 6.1.1 (2024-04-01)
 ### Reverts
 [](commmit) * bu bir patch
