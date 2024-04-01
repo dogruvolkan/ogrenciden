@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 10.1.0 - (2024-04-01)
+### Features
+* [af6b3a5](https://github.com/dogruvolkan/ogrenciden/commit/af6b3a5e45a75c11e19e7884c2dfc29e0e5ce3a9) bu bir minor
 ## Version 10.0.1 - ()
 ### Code Refactoring
 * [5641f3e](https://github.com/dogruvolkan/ogrenciden/commit/5641f3ea05e1aa70b1cf16b9a0409d8c12efe86e) patch değişsin
