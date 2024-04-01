@@ -1,91 +1,92 @@
 # Changelog
 
-## 4.7.10 (2024-04-01)
+## 4.7.13 (2024-04-01)
 ### BREAKING CHANGES
- * major
- * major
- * major
- * major
- * major
- * major
- * major
- * major
- * major değişklik
- * major deği
- * major
- * major
- * major değişiklik
- * major değiş
- * deneme
- * deneme
- * versiyon artışı
- * ünlemli
- * ünlemli
- * artır
- * versiyon artır
- * versiyon artır
- * versiyon
- * bu bir versiyon artışı
- * değişti
- * ikicnci version artışı
- * bu bir versiyon artışı
- * change versionn
- * update big
- * merhaba selam
- * hellloooo
- * some fix
- * hello it is cat
- * it is very important
+[](commmit) * bu bir major
+[](commmit) * major
+[](commmit) * major
+[](commmit) * major
+[](commmit) * major
+[](commmit) * major
+[](commmit) * major
+[](commmit) * major
+[](commmit) * major
+[](commmit) * major değişklik
+[](commmit) * major deği
+[](commmit) * major
+[](commmit) * major
+[](commmit) * major değişiklik
+[](commmit) * major değiş
+[](commmit) * deneme
+[](commmit) * deneme
+[](commmit) * versiyon artışı
+[](commmit) * ünlemli
+[](commmit) * ünlemli
+[](commmit) * artır
+[](commmit) * versiyon artır
+[](commmit) * versiyon artır
+[](commmit) * versiyon
+[](commmit) * bu bir versiyon artışı
+[](commmit) * değişti
+[](commmit) * ikicnci version artışı
+[](commmit) * bu bir versiyon artışı
+[](commmit) * change versionn
+[](commmit) * update big
+[](commmit) * merhaba selam
+[](commmit) * hellloooo
+[](commmit) * some fix
+[](commmit) * hello it is cat
+[](commmit) * it is very important
 ### Tests
- * bu bir test
+[](commmit) * bu bir test
 ### Styles
- * bir farklılık olsun
+[](commmit) * bir farklılık olsun
 ### Code Refactoring
- * patch değişsin
- * some good fix
- * selammm
+[](commmit) * patch değişsin
+[](commmit) * some good fix
+[](commmit) * selammm
 ### Reverts
- * patch
- * patch değişklik
- * deneme
- * remove some things
- * hellloooooo
+[](commmit) * patch
+[](commmit) * patch değişklik
+[](commmit) * deneme
+[](commmit) * remove some things
+[](commmit) * hellloooooo
 ### Bug Fixes
- * version update
- * patch
- * patch
- * patch
- * patch
- * patch değiş
- * deneme
- * bu bir fix
- * hellolollol
- * bu bir fix
- * helloooo32
- * some fiz deneme
- * selam
- * selam bu fix
- * console add
- * some fix2
- * some fixe
- * some fix3
- * some fix2
- * some fix1
- * add search input
- * bu bir deneme
+[](commmit) * version update
+[](commmit) * patch
+[](commmit) * patch
+[](commmit) * patch
+[](commmit) * patch
+[](commmit) * patch değiş
+[](commmit) * deneme
+[](commmit) * bu bir fix
+[](commmit) * hellolollol
+[](commmit) * bu bir fix
+[](commmit) * helloooo32
+[](commmit) * some fiz deneme
+[](commmit) * selam
+[](commmit) * selam bu fix
+[](commmit) * console add
+[](commmit) * some fix2
+[](commmit) * some fixe
+[](commmit) * some fix3
+[](commmit) * some fix2
+[](commmit) * some fix1
+[](commmit) * add search input
+[](commmit) * bu bir deneme
 ### Features
- * minor
- * minor
- * minor
- * minor değişklik
- * minor
- * minor değiş
- * deneme
- * helloo
- * new features
+[](commmit) * minor
+[](commmit) * minor
+[](commmit) * minor
+[](commmit) * minor değişklik
+[](commmit) * minor
+[](commmit) * minor değiş
+[](commmit) * deneme
+[](commmit) * helloo
+[](commmit) * new features
 ### Documentation
- * patch
- * bu bir deneme
- * merhabababbaba
- * helllo
- * hello
+[](commmit) * patch
+[](commmit) * bu bir deneme
+[](commmit) * merhabababbaba
+[](commmit) * helllo
+[](commmit) * hello
