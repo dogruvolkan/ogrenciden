@@ -1,5 +1,8 @@
 
 ## 0.0.1 (2024-03-31)
+## 0.1.0 (2024-04-01)
+### Features
+ * minor değişklik
 ## 0.0.2 (2024-04-01)
 ### Reverts
  * patch değişklik
