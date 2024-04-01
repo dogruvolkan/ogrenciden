@@ -1,5 +1,10 @@
 # Changelog
 
+## 8.1.0 (2024-04-01)
+### Bug Fixes
+[](commmit) * sonr abunu attım fix
+### Features
+[](commmit) * önce bunu attım feat
 ## 8.0.0 (2024-04-01)
 ### BREAKING CHANGES
 [](commmit) * major adama olsun
