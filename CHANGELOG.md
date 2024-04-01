@@ -10,7 +10,7 @@
 ### Bug Fixes
 [](commmit) * dffddf
 ### Features
-[](commmit) * dffdfd
+[](commmit) * dffdfdc
 ## 7.0.0 (2024-04-01)
 ### BREAKING CHANGES
 [](commmit) * major
