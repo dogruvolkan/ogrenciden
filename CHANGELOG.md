@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 9.2.0 - ()
+### Features
+* [827ac1f](https://github.com/dogruvolkan/ogrenciden/commit/827ac1fc2c6612953d683b748920bcbeb95e9090) minor
 ## 9.1.1 (2024-04-01)
 ### Bug Fixes
 * [(bcfcb20)](https://github.com/dogruvolkan/ogrenciden/commit/bcfcb20aed90707498f14f8e9459484ae3b5ae69) bu bir fix
