@@ -1,5 +1,10 @@
 # Changelog
 
+## 7.1.0 (2024-04-01)
+### Bug Fixes
+[](commmit) * dffddf
+### Features
+[](commmit) * dffdfd
 ## 7.0.0 (2024-04-01)
 ### BREAKING CHANGES
 [](commmit) * major
