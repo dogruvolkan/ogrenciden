@@ -1,5 +1,8 @@
 # Changelog
 
+## 11.0.0 (2024-04-01)
+### BREAKING CHANGES
+* [272dd30](https://github.com/dogruvolkan/ogrenciden/commit/272dd30d2f7d4f8adc6555f7d69d0f6d924cfcba) major değişiklik
 ## 10.1.2 (2024-04-01)
 ### Bug Fixes
 * [803df70](https://github.com/dogruvolkan/ogrenciden/commit/803df70a7b70a81ddb531dc31e42d2707724694b) 2 nisan yeni bir commit
