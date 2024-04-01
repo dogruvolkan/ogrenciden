@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.2.0 (2024-04-01)
+### Features
+[](commmit) * minor
 ## 6.1.2 (2024-04-01)
 ### Documentation
 [](commmit) * patch
