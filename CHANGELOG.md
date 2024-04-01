@@ -1,8 +1,5 @@
 # Changelog
 
-## 0.0.2 (2024-04-01)
-### Bug Fixes
- * patch
 ## 0.0.1 (2024-04-01)
 ### BREAKING CHANGES
  * major
@@ -53,6 +50,7 @@
  * patch
  * patch
  * patch
+ * patch
  * patch değiş
  * deneme
  * bu bir fix
@@ -71,6 +69,7 @@
  * add search input
  * bu bir deneme
 ### Features
+ * minor
  * minor
  * minor değişklik
  * minor
