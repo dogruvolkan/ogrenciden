@@ -10,7 +10,7 @@
 [](commmit) * major adama olsun
 ## 7.1.1 (2024-04-01)
 ### Documentation
-[](commmit) * deneme
+[](commmit) * denemed
 ## 7.1.0 (2024-04-01)
 ### Bug Fixes
 [](commmit) * dffddf
