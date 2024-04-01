@@ -25,4 +25,4 @@
 ### Features
 [](commmit) * minor
 ### Features
-[](commmit) * minor
+[](commmit) * minord
