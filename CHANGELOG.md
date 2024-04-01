@@ -1,10 +1,8 @@
 
 ## 0.0.1 (2024-04-01)
-## 1.0.0 (2024-04-01)
-### BREAKING CHANGES
- * major
 ### Documentation
 ### BREAKING CHANGES
+ * major
  * major
  * major değişklik
  * major deği
@@ -46,6 +44,7 @@
  * remove some things
  * hellloooooo
 ### Bug Fixes
+ * patch
  * patch
  * patch değiş
  * deneme
