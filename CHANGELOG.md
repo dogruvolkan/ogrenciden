@@ -1,7 +1,8 @@
 
-## 0.0.1 (2024-04-01)
+## 1.0.0 (2024-04-01)
 ### Documentation
 ### BREAKING CHANGES
+ * major
  * major
  * major
  * major değişklik
