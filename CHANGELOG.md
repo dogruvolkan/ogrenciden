@@ -6,6 +6,7 @@
  * major
  * major
  * major
+ * major
  * major değişklik
  * major deği
  * major
