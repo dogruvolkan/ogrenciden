@@ -1,5 +1,8 @@
 # Changelog
 
+## 13.0.1 (02.04.2024)
+### Bug Fixes
+* [de9f24f](https://github.com/dogruvolkan/ogrenciden/commit/de9f24f10c32050d5857b45947fb344a9d9e4bd3) bu bir fix
 ## 13.0.0 (02.04.2024)
 ### BREAKING CHANGES
 * [4ec1464](https://github.com/dogruvolkan/ogrenciden/commit/4ec1464029985326ee0914f7fe2ee654dd5aed16) major değişkilij
