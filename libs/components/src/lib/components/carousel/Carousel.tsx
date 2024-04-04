@@ -34,7 +34,13 @@ const Carousel = (props: Props) => {
 
     return (
         <div css={carouselContainerCss}>
-
+             <input
+                css={searchCss}
+                type="search"
+                placeholder="Ara..."
+                value={undefined}
+                onChange={undefined}
+            />
             <button onClick={prevImage} css={[carouselButton, leftButton]}><AiOutlineLeftCircle /></button>
             <div css={contentCss}>
                 <img css={carouselImageCss} src={images[currentImageIndex]?.image} alt="carousel" />
@@ -60,18 +66,34 @@ const Carousel = (props: Props) => {
 }
 
 const carouselContainerCss = css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
     width: 100%;
     max-width: 90%;
-    height: 450px;
+    height: 550px;
     margin: 20px auto;
     border:1px solid lightgray;
     border-radius: 20px;
 `
 
+const searchCss = css`
+  margin:20px 0;
+  width: 50%;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  font-size: 1em;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+`;
+
+
 const carouselImageCss = css`
     width: 40%;
-    height: 80%;
+    height: 300px;
     object-fit: contain;
     user-select: none;
 `

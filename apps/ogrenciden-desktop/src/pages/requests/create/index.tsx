@@ -71,7 +71,7 @@ export const CreateRequestContainer = (props: Props) => {
 
 
     const CreateRequest = () => {
-        UserRequest.create(requests as UserRequest.Request).then((res: any) => {
+        UserRequest.create(requests as UserRequest.Request).then((res:any) => {
             if (res?.error) {
                 toast.warning(JSON.parse(res.error).message, {
                     autoClose: 2000,
@@ -109,10 +109,20 @@ export const CreateRequestContainer = (props: Props) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    const jwt = context.req.cookies['jwt'];
 
     const categories = await Category.publicList({
         filter: ['Type=1'] 
     });
+
+    if (!jwt) {
+        return {
+          redirect: {
+            destination: '/login',
+            permanent: false,
+          },
+        };
+      }
 
     return {
         props: {

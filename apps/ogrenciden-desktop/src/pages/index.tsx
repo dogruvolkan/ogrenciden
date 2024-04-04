@@ -1,7 +1,15 @@
 import { css } from '@emotion/react';
-import { Advantages, Carousel, Faq, HowItWorks, Statistics } from '@ogrenciden/components';
+import { Advantages, Carousel, Faq, HighlightRequests, HighlightSecondHands, HowItWorks, Statistics } from '@ogrenciden/components';
+import { SecondHands, UserRequest } from '@ogrenciden/types';
+import { GetServerSideProps } from 'next';
 
-export function Index() {
+
+interface Props {
+  requests: UserRequest.Request[];
+  secondHands: SecondHands.SecondHand[];
+}
+
+export function Index(props: Props) {
   const images = [
     { image: '/7.png', description: "SANA GÖRE İLANLAR" },
     { image: '/1.png', description: "KİTAP  İLANLARI" },
@@ -13,11 +21,24 @@ export function Index() {
   ];
 
 
+  const { requests ,secondHands} = props;
+
+
   return (
     <div css={containerCSS}>
       <Carousel images={images} />
-      <h1>Talepler</h1>
-      <h1>İLANLAR</h1>
+     <div css={highlightCss}>
+     <div css={highlightRequests}>
+     <h1>Talepler</h1>
+      <HighlightRequests  requests={requests}/>
+      <a href="requests">Tümünü Gör</a>
+     </div>
+     <div css={highlightSecondHands}>
+      <h1>2.el Eşya İlanları</h1>
+      <HighlightSecondHands  secondHands={secondHands}/>
+      <a href="notices">Tümünü Gör</a>
+     </div>
+     </div>
       <HowItWorks />
       <Statistics />
       <Faq />
@@ -28,10 +49,75 @@ export function Index() {
 }
 
 
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const requests = await UserRequest.publicList({
+    limit: 5,
+    filter: ['Published=true'],
+    sort: ['-RequestStartDate'],
+  });
+
+  const secondHands = await SecondHands.publicList({
+    limit: 5,
+    filter: ['Published=true'],
+    sort: ['-CreatedAt'],
+  });
+  
+
+  return {
+    props: {
+      requests: requests,
+      secondHands: secondHands,
+    },
+  };
+};
+
+
 const containerCSS = css`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
+`
+
+const highlightCss = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px auto;
+
+  h1{
+    align-self: flex-start;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  a{
+    border:1px solid #000;
+    border-radius: 10px;
+    font-size:20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover{
+      background-color: #000;
+      color: #fff;
+    }
+  }
+`
+
+const highlightRequests = css`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+`
+
+const highlightSecondHands = css`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
 `
 
 export default Index;

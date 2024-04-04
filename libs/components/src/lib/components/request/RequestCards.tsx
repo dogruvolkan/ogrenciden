@@ -37,7 +37,7 @@ export const RequestCards = (props: Props) => {
 }
 
 const cardContainerCSS = css`
-    width:330px;
+    width:300px;
     height:350px;
     border-radius:20px;
     display:flex;

@@ -37,9 +37,7 @@ const statisticContainerCss = css`
     align-items:center;
     justify-content:center;
     gap:20px;
-    background-color: #5080D7;
-
-   
+    border:1px solid #e0e0e0;
 `
 
 
@@ -51,7 +49,6 @@ const cardContainerCss = css`
 `
 
 const titleCss = css`
-    color:white;
     font-size:2em;
     font-weight:bold;
 `
@@ -64,8 +61,8 @@ const card = css`
     gap:5px;
     width:300px;
     height:100px;
-    background-color:white;
     border-radius:20px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 
     h1{
         font-size:2em;

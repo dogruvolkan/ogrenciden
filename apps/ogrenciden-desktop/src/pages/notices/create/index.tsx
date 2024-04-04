@@ -39,10 +39,10 @@ export const CreateNoticesContainer = (props:Props) =>{
             <div css={createSubNoticeContainerCss}>
             <div css={noticeTypeCss}>
             <h1>İlan Oluştur</h1>
-                <div css={typeCss(showBooksAndNotes)} onClick={() => handleToggleState('booksAndNotes')}><div> Kitap & Not  İlanı Ver<AiOutlinePlusCircle css={addIconCss}/></div></div>
-                <div css={typeCss(showSecondHands)} onClick={() => handleToggleState('secondHands')}><div>2.El Eşya  İlanı Ver<AiOutlinePlusCircle css={addIconCss}/></div></div>
-                <div css={typeCss(showWorkAndInternship)} onClick={() => handleToggleState('workAndInternship')}><div>Staj & İş İlanı Ver<AiOutlinePlusCircle css={addIconCss}/></div></div>
-                <div css={typeCss(showHouseAndHouseBody)} onClick={() => handleToggleState('houseAndHouseBody')}><div> Ev & Ev arkadaşı  İlanı Ver<AiOutlinePlusCircle css={addIconCss}/></div></div>
+                <div css={typeCss(showBooksAndNotes)} onClick={() => handleToggleState('booksAndNotes')}> Kitap & Not  İlanı Ver</div>
+                <div css={typeCss(showSecondHands)} onClick={() => handleToggleState('secondHands')}>2.El Eşya  İlanı Ver</div>
+                <div css={typeCss(showWorkAndInternship)} onClick={() => handleToggleState('workAndInternship')}>Staj & İş İlanı Ver</div>
+                <div css={typeCss(showHouseAndHouseBody)} onClick={() => handleToggleState('houseAndHouseBody')}> Ev & Ev arkadaşı  İlanı Ver</div>
             </div>
            <div css={noticeCss}>
            {showBooksAndNotes && <BooksAndNotesNotice cities={cities} universities={universities}/>}
@@ -58,6 +58,17 @@ export const CreateNoticesContainer = (props:Props) =>{
 export default CreateNoticesContainer;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+
+    const jwt = context.req.cookies['jwt'];
+
+    if (!jwt) {
+        return {
+          redirect: {
+            destination: '/login',
+            permanent: false,
+          },
+        };
+      }
 
     const categories = await Category.publicList({
         filter: ['Type=2'] 
@@ -95,15 +106,17 @@ const createSubNoticeContainerCss = css`
 `
 
 const noticeTypeCss = css `
-    width:50%;
+    width:30%;
     display:flex;
     align-items:center;
     justify-content:center;
     flex-direction:column;
     flex-wrap:wrap;
-    gap:10px;
     position:sticky;
     top:20px;
+    border:1px solid #e0e0e0;
+    padding:20px 0;
+    border-radius:20px;
 `
 
 const noticeCss = css`
@@ -111,30 +124,16 @@ const noticeCss = css`
 `
 
 const typeCss = (active:boolean) => css`
-    border:3px solid ${active ? "green" :"lightgray"} ;
+    background:${active ? "#f5f5f5" :"#fffff"} ;
     width:70%;
     padding:20px;
     text-align:center;
-    border-radius:10px;
     position:relative;
     font-size:20px;
     font-weight:500;
 
     &:hover{
         cursor:pointer;
-        background-color:#f5f5f5;
-    }
-
-    div{
-        display:flex;
-       align-items:center;
-       justify-content:flex-start;
     }
 `
 
-const addIconCss = css`
-    font-size:1.5em;
-    color:green;
-    position:absolute;
-    right:20px;
-`

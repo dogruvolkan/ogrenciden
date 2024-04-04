@@ -38,12 +38,11 @@ const advantagesCss = css`
     align-items:center;
     flex-direction:column;
     gap:20px;
-    background-color: #5080D7;
+    border:1px solid #e0e0e0;
 
     h1{
         font-size:2em;
         font-weight:bold;
-        color:white;
     }
 `
 
@@ -61,6 +60,7 @@ const cardCss = css`
     background-color:#fff;
     border-radius:10px;
     padding:10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 `
 
 export default Advantages;

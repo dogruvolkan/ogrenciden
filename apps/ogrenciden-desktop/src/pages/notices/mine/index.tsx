@@ -110,7 +110,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   if (!jwt) {
     return {
-      notFound: true,
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
     };
   }
 

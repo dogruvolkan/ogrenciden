@@ -1,5 +1,8 @@
 # Changelog
 
+## 13.0.3 (02.04.2024)
+### Bug Fixes
+* [cca0dea](https://github.com/dogruvolkan/ogrenciden/commit/cca0dea8f9a439c23bd3651180e872f75b7a81bc) dfsfsf
 ## 13.0.2 (02.04.2024)
 ### Bug Fixes
 * [0b37640](https://github.com/dogruvolkan/ogrenciden/commit/0b376409fe1c28b218c752769483d85f2af1eeac) denemedsdsds

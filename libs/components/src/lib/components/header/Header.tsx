@@ -3,7 +3,6 @@ import { css } from '@emotion/react';
 import Button from '../button/Button';
 import { AiOutlineUser } from "react-icons/ai";
 import { useContext, useState } from 'react';
-import { AuthService } from '@ogrenciden/services';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Auth } from '@ogrenciden/types';
 import router from 'next/router';
@@ -28,6 +27,22 @@ const Header = () => {
         )
     }
 
+    const handleCreateRequest = () => {
+        if (!authContext.isAuthenticated) {
+            router.push('/login')
+        }else{
+            router.push('/requests/create')
+        }
+    }
+
+    const handleCreateNotice = () => {
+        if (!authContext.isAuthenticated) {
+            router.push('/login')
+        }else{
+            router.push('/notices/create')
+        }
+    }
+
     return (
         <header>
             <div css={headerContainer}>
@@ -38,8 +53,8 @@ const Header = () => {
                         <li><a href="/">2.EL EŞYA</a></li>
                         <li><a href="/">STAJ & İŞ</a></li>
                         <li><a href="/">EV & EV ARKADAŞI</a></li>
-                        <Button size={"md"} variant={"primary"}><a href="/requests/create"> TALEP OLUŞTUR</a></Button>
-                        <Button size={"md"} variant={"secondary"}><a href="/notices/create">İLAN VER</a></Button>
+                        <Button size={"md"} variant={"primary"} onClick={handleCreateRequest}> TALEP OLUŞTUR</Button>
+                        <Button size={"md"} variant={"secondary"} onClick={handleCreateNotice}>İLAN VER</Button>
                         <button css={userBtnCss} onClick={toggleUserPopover}>
                             <AiOutlineUser size={25}> </AiOutlineUser>
                             <span css={userCss}>{authContext.isAuthenticated && `${(authContext.user?.FirstName)?.toUpperCase()}`}</span>

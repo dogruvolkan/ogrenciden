@@ -41,8 +41,6 @@ const questionContainerCss = css`
     align-items:center;
     justify-content:space-between;
     height:50px;
-    background-color:#C6488C;
-    color:white;
     border-radius:10px;
     padding:10px;
 `
@@ -56,12 +54,11 @@ const btnCss = css`
     background-color:transparent;
     width:30px;
     height:30px;
-    border:1px solid white;
+    border:1px solid lightgray;
     border-radius:50%;
     align-items:center;
     justify-content:center;
     font-size:1em;
-    color:white;
 `
 
 export default Accordion;
