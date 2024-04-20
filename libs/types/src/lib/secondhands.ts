@@ -67,3 +67,9 @@ export async function mySecondHandNotices(options?: RequestInit, qapi?: QApis.QA
         ...options
     })
 }
+
+export async function getSecondHandCount(){
+    return await request<number>('public/secondhand/count',{
+        method:'GET'
+    })
+}

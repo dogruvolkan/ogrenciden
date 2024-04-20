@@ -14,7 +14,11 @@ func UserController(r fiber.Router, s Service) {
 	res := controller{s}
 	r.Get("/me", res.me)
 	r.Put("/update/:uid",middlewares.BodyParserMap("body","Password"),middlewares.ValidatorMap("body",User{}) ,res.update)
+}
 
+func UserPublicController(r fiber.Router, s Service) {
+	res := controller{s}
+	r.Get("/count" , res.usersCount)
 }
 
 
@@ -55,4 +59,15 @@ func (res *controller) update(ctx *fiber.Ctx) error {
 
 
 	return ctx.SendStatus(fiber.StatusNoContent)
+}
+
+func (res *controller) usersCount(ctx *fiber.Ctx) error {
+	
+	count, err := res.service.CountUsers()
+
+	if err != nil {
+		return err
+	}
+
+	return ctx.Format(&count)
 }

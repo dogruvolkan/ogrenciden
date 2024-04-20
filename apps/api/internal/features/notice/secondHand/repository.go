@@ -8,6 +8,7 @@ import (
 type Repository interface {
 	repositories.Repository[SecondHand]
 	MySecondHandNotices(studentID uint) ([]SecondHand, error)
+	CountSecondHands() (int64, error)
 }
 
 type repository struct {
@@ -29,4 +30,13 @@ func (r repository) MySecondHandNotices(studentID uint) ([]SecondHand, error) {
 	}
 
 	return secondHands, nil
+}
+
+
+func (rep *repository) CountSecondHands() (int64, error) {
+	var count int64
+	if res := rep.DB.Model(SecondHand{}).Count(&count); res.Error != nil {
+		return 0, res.Error
+	}
+	return count, nil
 }

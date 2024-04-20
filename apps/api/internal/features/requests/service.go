@@ -13,6 +13,7 @@ type Service interface {
 	CreateRequest(ctx context.Context, request *Request) error
 	ReadCategoryWithPreloads(id uint) (*Request, error)
 	MyRequests(studentID uint) ([]Request, error)
+	CountRequests() (int64, error)
 }
 
 type service struct {
@@ -66,4 +67,8 @@ func (s service) MyRequests(studentID uint) ([]Request, error) {
 
 	return s.repository.MyRequests(studentID)
 
+}
+
+func (ser *service) CountRequests() (int64, error) {
+	return ser.repository.CountRequests()
 }

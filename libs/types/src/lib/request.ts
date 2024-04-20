@@ -45,3 +45,9 @@ export async function myRequests(options?: RequestInit, qapi?: QApis.QApi) {
         ...options
     })
 }
+
+export async function getrequestCount(){
+    return await request<number>('public/requests/count',{
+        method:'GET'
+    })
+}

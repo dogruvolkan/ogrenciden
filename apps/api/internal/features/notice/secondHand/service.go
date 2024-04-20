@@ -11,6 +11,7 @@ type Service interface {
 	CreateSecondHand(ctx context.Context, secondHand *SecondHand) error
 	MySecondHandNotices(studentID uint) ([]SecondHand, error)
 	ReadWithPreloads(id uint) (*SecondHand, error)
+	CountSecondHands() (int64, error)
 }
 
 type service struct {
@@ -59,5 +60,8 @@ func (s service) ReadWithPreloads(id uint) (*SecondHand, error) {
 	secondHand.User = user
 
 	return &secondHand, nil
+}
 
+func (ser *service) CountSecondHands() (int64, error) {
+	return ser.repository.CountSecondHands()
 }

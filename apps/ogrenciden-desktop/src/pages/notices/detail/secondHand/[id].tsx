@@ -11,7 +11,6 @@ export interface Props {
 export const SecondHandNoticeDetailContainer = (props:Props) =>{
 
     const {secondHands} = props;
-    console.log("gelen",secondHands);
 
     return (
         <div css={requestContainer}>
@@ -30,8 +29,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const id = context.params?.id;
 
     const secondHands = await SecondHands.get(id as string);
-
-    console.log("gelen",secondHands);
 
     return {
         props: {

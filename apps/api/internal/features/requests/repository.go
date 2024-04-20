@@ -8,6 +8,7 @@ import (
 type Repository interface {
 	repositories.Repository[Request]
 	MyRequests(studentID uint) ([]Request, error)
+	CountRequests() (int64, error)
 }
 
 type repository struct {
@@ -29,4 +30,13 @@ func (r repository) MyRequests(studentID uint) ([]Request, error) {
 
 
 	return requests, nil
+}
+
+
+func (rep *repository) CountRequests() (int64, error) {
+	var count int64
+	if res := rep.DB.Model(Request{}).Count(&count); res.Error != nil {
+		return 0, res.Error
+	}
+	return count, nil
 }

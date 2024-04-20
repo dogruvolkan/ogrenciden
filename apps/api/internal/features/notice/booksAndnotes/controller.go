@@ -32,7 +32,7 @@ func (res *controller) read(ctx *fiber.Ctx) error {
 	reqId, err := ctx.ParamsInt("id")
 
 	if err != nil {
-		return fiber.NewError(http.StatusNotFound, "Request id not found")
+		return fiber.NewError(http.StatusNotFound, "books and notes id not found")
 	}
 
 	booksAndNotes, err := res.service.ReadWithPreloads(uint(reqId))

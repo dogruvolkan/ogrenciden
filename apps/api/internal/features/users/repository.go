@@ -14,6 +14,7 @@ type Repository interface {
 	BeginTx(ctx context.Context) (Repository, error)
 	RollbackTx() error
 	CommitTx() error
+	CountUsers() (int64, error)
 }
 type repository struct {
 	repositories.GormRepository[User]
@@ -59,4 +60,12 @@ func (rep *repository) FindUserById(id uint) (*User, error) {
 		return nil, res.Error
 	}
 	return &user, nil
+}
+
+func (rep *repository) CountUsers() (int64, error) {
+	var count int64
+	if res := rep.DB.Model(User{}).Count(&count); res.Error != nil {
+		return 0, res.Error
+	}
+	return count, nil
 }

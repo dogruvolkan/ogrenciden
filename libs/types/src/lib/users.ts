@@ -33,3 +33,9 @@ export async function me(options?: RequestInit){
     })
 }
 
+
+export async function getUsersCount(){
+    return await request<number>('public/users/count',{
+        method:'GET'
+    })
+}

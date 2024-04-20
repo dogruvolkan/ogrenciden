@@ -13,8 +13,6 @@ export const SecondHandNoticeCard = (props:Props) => {
 
     const {secondHandNotice} = props
 
-    console.log(secondHandNotice);
-
     const handlesecondHandNotice = useCallback(() => {
         if (secondHandNotice.ID) {
             router.push(`/notices/detail/secondHand/${secondHandNotice.ID}`)

@@ -22,6 +22,7 @@ func RequestStudentController(r fiber.Router, s Service) {
 
 func RequestsPublicController(r fiber.Router, s Service) {
 	res := controller{s}
+	r.Get("/count" , res.requestCount)
 	r.Get("/", middlewares.QApi, res.list)
 	r.Get("/:id", res.read)
 }
@@ -91,4 +92,15 @@ func (res *controller) myRequests(ctx *fiber.Ctx) error {
 
 	return ctx.Format(requests)
 
+}
+
+func (res *controller) requestCount(ctx *fiber.Ctx) error {
+	
+	count, err := res.service.CountRequests()
+
+	if err != nil {
+		return err
+	}
+
+	return ctx.Format(&count)
 }

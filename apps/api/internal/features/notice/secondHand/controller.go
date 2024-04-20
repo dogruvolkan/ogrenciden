@@ -23,6 +23,7 @@ func SecondHandStudentController(r fiber.Router, s Service) {
 
 func SecondHandPublicController(r fiber.Router, s Service) {
 	res := controller{s}
+	r.Get("/count" , res.secondhandCount)
 	r.Get("/", middlewares.QApi, res.list)
 	r.Get("/:id", res.read)
 }
@@ -32,7 +33,7 @@ func (res *controller) read(ctx *fiber.Ctx) error {
 	reqId, err := ctx.ParamsInt("id")
 
 	if err != nil {
-		return fiber.NewError(http.StatusNotFound, "Request id not found")
+		return fiber.NewError(http.StatusNotFound, "second hand id not found")
 	}
 
 	secondHands, err := res.service.ReadWithPreloads(uint(reqId))
@@ -93,4 +94,15 @@ func (res *controller) mySecondHandNotices(ctx *fiber.Ctx) error {
 
 	return ctx.Format(secondHands)
 
+}
+
+func (res *controller) secondhandCount(ctx *fiber.Ctx) error {
+	
+	count, err := res.service.CountSecondHands()
+
+	if err != nil {
+		return err
+	}
+
+	return ctx.Format(&count)
 }

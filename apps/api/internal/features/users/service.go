@@ -4,6 +4,7 @@ import "gitlab.com/sincap/sincap-common/services"
 
 type Service interface {
 	services.Service[User]
+	CountUsers() (int64, error)
 }
 
 type service struct {
@@ -17,4 +18,8 @@ func UserService(r Repository) Service {
 		repository:  r,
 	}
 
+}
+
+func (ser *service) CountUsers() (int64, error) {
+	return ser.repository.CountUsers()
 }
