@@ -26,8 +26,6 @@ export const Statistics = () => {
     fetchData();
   }, []);
 
-  console.log('requestsCount', requestsCount);
-
   return (
     <div css={statisticContainerCss}>
       <h1 css={titleCss}>İstatistikler</h1>

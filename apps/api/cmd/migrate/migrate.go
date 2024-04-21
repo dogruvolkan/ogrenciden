@@ -6,9 +6,11 @@ import (
 	"ogrenciden/apps/api/internal/features/cities"
 	"ogrenciden/apps/api/internal/features/companies"
 	booksandnotes "ogrenciden/apps/api/internal/features/notice/booksAndnotes"
+	"ogrenciden/apps/api/internal/features/notice/jobAndInternship"
 	secondhand "ogrenciden/apps/api/internal/features/notice/secondHand"
 	"ogrenciden/apps/api/internal/features/requests"
 	"ogrenciden/apps/api/internal/features/roles"
+	"ogrenciden/apps/api/internal/features/sectors"
 	"ogrenciden/apps/api/internal/features/students"
 	"ogrenciden/apps/api/internal/features/universities"
 	"ogrenciden/apps/api/internal/features/users"
@@ -32,4 +34,6 @@ var models = []interface{}{
 	&secondhand.SecondHand{},
 	&universities.University{},
 	&booksandnotes.BooksAndNotes{},
+	&jobAndInternship.JobAndInternship{},
+	&sectors.Sector{},
 }

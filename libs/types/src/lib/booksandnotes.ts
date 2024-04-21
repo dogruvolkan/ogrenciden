@@ -1,5 +1,4 @@
 import { QApis, Students } from "..";
-import { Category } from "./categories";
 import { City } from "./cities";
 import { request } from "./fetch";
 import { University } from "./universities";

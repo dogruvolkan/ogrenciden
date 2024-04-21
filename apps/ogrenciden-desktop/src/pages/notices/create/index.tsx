@@ -1,21 +1,22 @@
 import { css } from "@emotion/react";
-import { HouseAndHouseBody, WorkAndInternship } from "@ogrenciden/components";
-import { Category, City, Universities } from "@ogrenciden/types";
+import { HouseAndHouseBody } from "@ogrenciden/components";
+import { Category, City, Sectors, Universities } from "@ogrenciden/types";
 import { BooksAndNotesNotice } from "libs/components/src/lib/components/notices/booksAndNotes/create/BooksAndNotesNotice";
 import { SecondHandsNotice } from "libs/components/src/lib/components/notices/secondHands/create/SecondHandsNotice";
+import { WorkAndInternshipNotice } from "libs/components/src/lib/components/notices/workAndInternship/create/WorkAndInternshipNotice";
 import { GetServerSideProps } from "next";
 import { useState } from "react";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 
 interface Props {
     categories: Category.Category[];
     cities: City.City[];
     universities:Universities.University[];
+    sectors:Sectors.Sector[];
 }
 
 
 export const CreateNoticesContainer = (props:Props) =>{
-    const {categories ,cities,universities} = props;
+    const {categories ,cities,universities,sectors} = props;
 
     const [showBooksAndNotes, setShowBooksAndNotes] = useState<boolean>(true);
     const [showSecondHands, setShowSecondHands] = useState<boolean>(false);
@@ -43,7 +44,7 @@ export const CreateNoticesContainer = (props:Props) =>{
            <div css={noticeCss}>
            {showBooksAndNotes && <BooksAndNotesNotice cities={cities} universities={universities}/>}
             {showSecondHands && <SecondHandsNotice categories={categories} cities={cities} universities={universities}/>}
-            {showWorkAndInternship && <WorkAndInternship/>}
+            {showWorkAndInternship && <WorkAndInternshipNotice sectors={sectors} cities={cities}/>}
             {showHouseAndHouseBody && <HouseAndHouseBody />}
            </div>
            </div>
@@ -71,12 +72,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     });
     const cities = await City.publicList();
     const universities = await Universities.publicList();
+    const sectors = await Sectors.publicList();
 
     return {
         props: {
             categories: categories,
             cities: cities,
-            universities:universities
+            universities:universities,
+            sectors:sectors
         }
     }
 

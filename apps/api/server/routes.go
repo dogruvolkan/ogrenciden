@@ -6,9 +6,11 @@ import (
 	"ogrenciden/apps/api/internal/features/cities"
 	"ogrenciden/apps/api/internal/features/companies"
 	booksandnotes "ogrenciden/apps/api/internal/features/notice/booksAndnotes"
+	"ogrenciden/apps/api/internal/features/notice/jobAndInternship"
 	secondhand "ogrenciden/apps/api/internal/features/notice/secondHand"
 	"ogrenciden/apps/api/internal/features/requests"
 	"ogrenciden/apps/api/internal/features/roles"
+	"ogrenciden/apps/api/internal/features/sectors"
 	"ogrenciden/apps/api/internal/features/students"
 	"ogrenciden/apps/api/internal/features/universities"
 	"ogrenciden/apps/api/internal/features/users"
@@ -27,9 +29,9 @@ func AddRoutes(app *fiber.App) {
 }
 
 func authenticatedRoutes(r fiber.Router) {
+	companiesRoutes(r)
 	adminRoutes(r)
 	studentsRoutes(r)
-	companiesRoutes(r)
 	usersRoutes(r)
 }
 
@@ -44,10 +46,17 @@ func publicRoutes(r fiber.Router) {
 	cities.CityPublicControler(public.Group("/cities"), cities.CityService(cities.CityRepository(db.DB())))
 	universities.UniversityPublicControler(public.Group("/universities"),universities.UniversityService(universities.UniversityRepository(db.DB())))
 	users.UserPublicController(public.Group("/users"), users.UserService(users.UserRepository(db.DB())))
+	sectors.SectorPublicControler(public.Group("/sectors"), sectors.SectorService(sectors.SectorRepository(db.DB())))
 }
 
 func adminRoutes(r fiber.Router) {
 	//admin := r.Group("/admin")
+}
+
+func companiesRoutes(r fiber.Router) {
+	company := r.Group("/companies").Use(jwt.JWT()...)
+	company.Use(auth.Authenticator(auth.AuthRepository(db.DB()), roles.CompanyID))
+	jobAndInternship.JobAndInternshipController(company.Group("/jobandinternship"), jobAndInternship.JobAndInternshipService(jobAndInternship.JobAndInternshipRepository(db.DB()),users.UserRepository(db.DB())))
 }
 
 func studentsRoutes(r fiber.Router) {
@@ -56,11 +65,6 @@ func studentsRoutes(r fiber.Router) {
 	requests.RequestStudentController(student.Group("/requests"), requests.RequestService(requests.RequestRepository(db.DB()),users.UserRepository(db.DB())))
 	secondhand.SecondHandStudentController(student.Group("/secondhand"),secondhand.SecondHandService(secondhand.SecondHandRepository(db.DB()),users.UserRepository(db.DB())))
 	booksandnotes.BooksAndNotesStudentController(student.Group("/booksandnotes"),booksandnotes.BooksAndNotesService(booksandnotes.BooksAndNotesRepository(db.DB()),users.UserRepository(db.DB())))
-}
-
-func companiesRoutes(r fiber.Router) {
-	company := r.Group("/companies").Use(jwt.JWT()...)
-	company.Use(auth.Authenticator(auth.AuthRepository(db.DB()), roles.CompanyID))
 }
 
 func usersRoutes(r fiber.Router) {

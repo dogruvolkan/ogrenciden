@@ -13,7 +13,7 @@ export const MyNotices = (props: Props) => {
 
   const [searchTerms, setSearchTerms] = useState('');
 
-  const filteredSecondHand = secondHandNotices.filter((notice) =>
+  const filteredSecondHand = secondHandNotices?.filter((notice) =>
     notice.Title.toLowerCase().includes(searchTerms.toLowerCase())
   );
 
