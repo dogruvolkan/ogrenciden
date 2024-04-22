@@ -47,6 +47,7 @@ func publicRoutes(r fiber.Router) {
 	universities.UniversityPublicControler(public.Group("/universities"),universities.UniversityService(universities.UniversityRepository(db.DB())))
 	users.UserPublicController(public.Group("/users"), users.UserService(users.UserRepository(db.DB())))
 	sectors.SectorPublicControler(public.Group("/sectors"), sectors.SectorService(sectors.SectorRepository(db.DB())))
+	jobAndInternship.JobAndInternshipPublicController(public.Group("/jobandinternship"), jobAndInternship.JobAndInternshipService(jobAndInternship.JobAndInternshipRepository(db.DB()),users.UserRepository(db.DB())))
 }
 
 func adminRoutes(r fiber.Router) {

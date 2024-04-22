@@ -1,8 +1,10 @@
 
-import { Companies, Sectors } from "..";
+import {Companies, Sectors } from "..";
 import { request } from "./fetch";
+import { QApis } from "..";
+import { City } from "./cities";
 
-export interface WorksAndJobs {
+export interface WorksAndInternship {
     ID: number;
     CreatedAt: string;
     UpdatedAt: string;
@@ -19,6 +21,8 @@ export interface WorksAndJobs {
     SectorID:string;
     Company: Companies.Company;
     CompanyID: number;
+    CityID: number;
+    City: City;
 }
 
 export const workType =[
@@ -26,14 +30,26 @@ export const workType =[
     {ID:2 , Name : "İş"}
 ]
 
-export const workLocation =[
+export const workLocation = [
     {ID:1 , Name :"Uzaktan"},
     {ID:2 , Name : "Ofisten"},
     {ID:3 , Name : "Hibrit"}
 ]
 
 
-export async function create(value: WorksAndJobs) {
+export async function get(id: number | string) {
+    return await request<WorksAndInternship>(`public/jobandinternship/${id}`, {
+        method: 'GET'
+    })
+}
+
+export async function publicList(qapi?: QApis.QApi) {
+    return await request<WorksAndInternship[]>(`public/jobandinternship${QApis.toQueryParam(qapi)}`, {
+        method: 'GET'
+    })
+}
+
+export async function create(value: WorksAndInternship) {
     return await request<never>(`companies/jobandinternship`, {
         method: 'POST',
         body: JSON.stringify(value)

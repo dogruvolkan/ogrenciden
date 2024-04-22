@@ -23,7 +23,9 @@ import SecondHandNoticeCard from './lib/components/notices/secondHands/SecondHan
 import SecondHandNoticeDetailCard from './lib/components/notices/secondHands/SecondHandNoticeDetailCard'
 import HighlightRequests from './lib/components/request/HighlightRequests'
 import HighlightSecondHands from './lib/components/notices/secondHands/HighlightSecondHands'
-
+import WorkAndInternshipCard from './lib/components/notices/workAndInternship/WorkAndInternshipCard'
+import WorkAndInternshipDetailCard from './lib/components/notices/workAndInternship/WorkAndInternshipDetailCard'
+import HighlightWorkAndInternship from './lib/components/notices/workAndInternship/HighlightWorkAndInternship'
 
 
 export { Header }
@@ -51,3 +53,6 @@ export {SecondHandNoticeCard}
 export {SecondHandNoticeDetailCard}
 export {HighlightRequests}
 export{HighlightSecondHands}
+export{WorkAndInternshipCard}
+export{WorkAndInternshipDetailCard}
+export{HighlightWorkAndInternship}

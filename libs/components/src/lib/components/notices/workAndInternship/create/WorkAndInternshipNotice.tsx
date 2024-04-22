@@ -1,10 +1,11 @@
+/** @jsxImportSource @emotion/react */
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Input from "../../../form/Input";
 import SelectBox from "../../../form/SelectBox";
 import Textarea from "../../../form/Textarea";
 import Button from "../../../button/Button";
-import { City, Sectors, WorksAndJobs } from "@ogrenciden/types";
+import { City, Sectors, WorksAndInternships } from "@ogrenciden/types";
 import DatePicker from "../../../form/DatePicker";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -19,16 +20,14 @@ interface Props {
 export const WorkAndInternshipNotice = (props:Props) => {
     const {sectors,cities} = props;
 
-    const [notice , setNotice] = useState<Partial<WorksAndJobs.WorksAndJobs> | undefined>({
+    const [notice , setNotice] = useState<Partial<WorksAndInternships.WorksAndInternship> | undefined>({
         Title: "",
         Content: "",
         StartTime: undefined,
         EndTime: undefined,
         WorkType:"",
         WorkLocationType:"",
-        Location:"",
         SectorID:"",
-        CompanyID:16
     })
 
     const handleWorkType = (option: number) => {
@@ -62,8 +61,8 @@ export const WorkAndInternshipNotice = (props:Props) => {
     const handleLocation = (option: number) => {
         setNotice({
             ...notice,
-            Location: option.toString()
-        });
+            CityID: Number(option),
+        });   
     }
 
     const handleContent = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,7 +89,7 @@ export const WorkAndInternshipNotice = (props:Props) => {
 
 
     const createNotice = () => {
-        WorksAndJobs.create(notice as WorksAndJobs.WorksAndJobs).then((res :any) =>{
+        WorksAndInternships.create(notice as WorksAndInternships.WorksAndInternship).then((res :any) =>{
             if (res?.error) {
                 toast.warning(JSON.parse(res.error).message, {
                     autoClose: 2000,
@@ -114,17 +113,14 @@ export const WorkAndInternshipNotice = (props:Props) => {
         <>
            <div css={containerCss}> 
            <h1>Staj & İş İlanı Oluştur</h1>
-             <SelectBox options={WorksAndJobs.workType} onSelectOption={handleWorkType} label={"İş Türü"} optionLabel="Name" optionValue="ID" />
+             <SelectBox options={WorksAndInternships.workType} onSelectOption={handleWorkType} label={"İş Türü"} optionLabel="Name" optionValue="ID" />
              <Input type={"text"} value={notice?.Title || ""} onChange={handleTitle} label={"Başlık:"} placeholder={"Golang developer"} />
              <SelectBox options={sectors} onSelectOption={handleSector} label={"Sektör"} optionLabel="Name" optionValue="ID" />
-             <SelectBox options={WorksAndJobs.workLocation} onSelectOption={handleWorkTypeLocation} label={"İş Yeri"} optionLabel="Name" optionValue="ID" />
+             <SelectBox options={WorksAndInternships.workLocation} onSelectOption={handleWorkTypeLocation} label={"İş Yeri"} optionLabel="Name" optionValue="ID" />
              <SelectBox options={cities} onSelectOption={handleLocation} label={"Konum"} optionLabel="Name" optionValue="ID" />
              <Textarea value={notice?.Content || ""} onChange={handleContent} label={"Açıklama:"} placeholder="İşle ilgili detayları girin" />
              <DatePicker onSelectDate={handleDateStartSelect} label={"Başlangıç Tarih:"} />
              <DatePicker onSelectDate={handleDateEndSelect} label={"Bitiş Tarih:"} />
-           
-           
-           
             <Button size={"lg"} onClick={createNotice}>Yayınla</Button>  
            </div>
            <ToastContainer />

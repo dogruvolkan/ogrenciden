@@ -1,6 +1,7 @@
 package jobAndInternship
 
 import (
+	"ogrenciden/apps/api/internal/features/cities"
 	"ogrenciden/apps/api/internal/features/companies"
 	"ogrenciden/apps/api/internal/features/sectors"
 	"ogrenciden/apps/api/internal/features/users"
@@ -18,11 +19,12 @@ type JobAndInternship struct {
 	Status           uint   `gorm:"default:0"`
 	WorkType         string `gorm:"size:100" validate:"required"`
 	WorkLocationType string `gorm:"size:100" validate:"required"`
-	Location         string `gorm:"size:100" validate:"required"`
 	UserID           uint
 	CompanyID        uint
 	SectorID         string
+	CityID           uint
 	User             *users.User        `gorm:"foreignKey:UserID"`
 	Sector           *sectors.Sector    `gorm:"foreignKey:SectorID"`
 	Company          *companies.Company `gorm:"foreignKey:CompanyID"`
+	City             *cities.City       `gorm:"foreignKey:CityID"`
 }

@@ -1,12 +1,13 @@
 import { css } from '@emotion/react';
-import { Advantages, Carousel, Faq, HighlightRequests, HighlightSecondHands, HowItWorks, Statistics } from '@ogrenciden/components';
-import { SecondHands, UserRequest } from '@ogrenciden/types';
+import { Advantages, Carousel, Faq, HighlightRequests, HighlightSecondHands, HighlightWorkAndInternship, HowItWorks, Statistics } from '@ogrenciden/components';
+import { SecondHands, UserRequest, WorksAndInternships } from '@ogrenciden/types';
 import { GetServerSideProps } from 'next';
 
 
 interface Props {
   requests: UserRequest.Request[];
   secondHands: SecondHands.SecondHand[];
+  worksAndInternships: WorksAndInternships.WorksAndInternship[];
 }
 
 export function Index(props: Props) {
@@ -21,7 +22,7 @@ export function Index(props: Props) {
   ];
 
 
-  const { requests ,secondHands} = props;
+  const { requests ,secondHands ,worksAndInternships} = props;
 
 
   return (
@@ -31,12 +32,17 @@ export function Index(props: Props) {
      <div css={highlightRequests}>
      <h1>Talepler</h1>
       <HighlightRequests  requests={requests}/>
-      <a href="requests">Tümünü Gör</a>
+      <a css={link} href="requests">Tümünü Gör</a>
      </div>
      <div css={highlightSecondHands}>
       <h1>2.el Eşya İlanları</h1>
       <HighlightSecondHands  secondHands={secondHands}/>
-      <a href="notices">Tümünü Gör</a>
+      <a css={link} href="notices">Tümünü Gör</a>
+     </div>
+     <div css={highlightSecondHands}>
+      <h1>İş Ve Staj İlanları</h1>
+      <HighlightWorkAndInternship  worksAndInternships={worksAndInternships}/>
+      <a css={link} href="notices">Tümünü Gör</a>
      </div>
      </div>
       <HowItWorks />
@@ -61,12 +67,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     filter: ['Published=true'],
     sort: ['-CreatedAt'],
   });
+
+  const worksAndInternships = await WorksAndInternships.publicList({
+    limit: 5,
+    filter: ['Published=true'],
+    sort: ['-CreatedAt'],
+  });
   
 
   return {
     props: {
       requests: requests,
       secondHands: secondHands,
+      worksAndInternships: worksAndInternships,
     },
   };
 };
@@ -90,19 +103,19 @@ const highlightCss = css`
     font-size: 2em;
     font-weight: bold;
   }
+`
 
-  a{
-    border:1px solid #000;
-    border-radius: 10px;
-    font-size:20px;
-    padding: 10px 20px;
-    text-decoration: none;
-    transition: all 0.3s;
+const link = css`
+  border:1px solid #000;
+  border-radius: 10px;
+  font-size:20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s;
 
-    &:hover{
-      background-color: #000;
-      color: #fff;
-    }
+  &:hover{
+    background-color: #000;
+    color: #fff;
   }
 `
 

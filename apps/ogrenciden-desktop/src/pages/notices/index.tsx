@@ -1,15 +1,16 @@
 import { GetServerSideProps } from 'next';
-import { SecondHands } from '@ogrenciden/types';
+import { SecondHands, WorksAndInternships } from '@ogrenciden/types';
 import { css } from '@emotion/react';
-import { SecondHandNoticeCard } from '@ogrenciden/components';
+import { SecondHandNoticeCard, WorkAndInternshipCard } from '@ogrenciden/components';
 import { useState } from 'react';
 
 export interface Props {
   secondHand: SecondHands.SecondHand[];
+  workAndInternship: WorksAndInternships.WorksAndInternship[];
 }
 
 export const Notices = (props: Props) => {
-  const { secondHand } = props;
+  const { secondHand,workAndInternship } = props;
 
   const [searchTerms, setSearchTerms] = useState('');
 
@@ -42,6 +43,16 @@ export const Notices = (props: Props) => {
           {secondHand?.map((notice) => {
             return (
               <SecondHandNoticeCard secondHandNotice={notice} key={notice.ID} />
+            );
+          })}
+        </div>
+      </div>
+      <div css={secondHandNoticeContainerCss}>
+        <h1>İş Ve Staj İlanları</h1>
+        <div css={secondHandNoticeCss}>
+          {workAndInternship?.map((notice) => {
+            return (
+              <WorkAndInternshipCard workAndInternshipNotice={notice} key={notice.ID} />
             );
           })}
         </div>
@@ -107,9 +118,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     filter: ['Published=true'],
   });
 
+  const workAndInternship = await WorksAndInternships.publicList({
+    filter: ['Published=true'],
+  })
+
   return {
     props: {
       secondHand: secondHand,
+      workAndInternship: workAndInternship
     },
   };
 };

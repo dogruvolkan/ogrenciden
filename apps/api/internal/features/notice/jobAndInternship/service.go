@@ -10,6 +10,7 @@ import (
 type Service interface {
 	services.Service[JobAndInternship]
 	CreateJobsAndInternship(ctx context.Context, jobAndInternship *JobAndInternship) error
+	ReadWithPreloads(id uint) (*JobAndInternship, error)
 }
 
 type service struct {
@@ -34,3 +35,23 @@ func (s service) CreateJobsAndInternship(ctx context.Context, jobAndInternship *
 
 	return nil
 }
+
+func (s service) ReadWithPreloads(id uint) (*JobAndInternship, error) {
+
+	var jobsAndInternship JobAndInternship
+
+	if err := s.repository.Read(&jobsAndInternship, id, "Sector", "City","Company","User"); err != nil {
+		return nil, err
+	}
+
+	user, err := s.userRepository.FindUserById(jobsAndInternship.Company.UserID) 
+	
+	if err != nil {
+		 return nil, err
+	}
+
+	jobsAndInternship.User = user
+
+	return &jobsAndInternship, nil
+}
+

@@ -13,6 +13,6 @@ export * as SecondHands from './lib/secondhands';
 export * as BooksAndNotes from './lib/booksandnotes';
 export * as Students from './lib/students';
 export * as Universities from './lib/universities'
-export * as WorksAndJobs from './lib/worksandjobs';
+export * as WorksAndInternships from './lib/worksandinternship';
 export * as Sectors from './lib/sectors';
 export * as Companies from './lib/companies';

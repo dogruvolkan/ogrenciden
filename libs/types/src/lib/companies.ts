@@ -3,6 +3,8 @@ export interface Company {
     ID : number;
     CreatedAt: string;
     UpdatedAt: string;
-    FirstName: string;
-    LastName: string;
+    Name: string;
+    Email: string;
+    Phone: string;
+    Website: string;
 }
