@@ -16,7 +16,7 @@ import DatePicker from './lib/components/form/DatePicker'
 import ImgUpload from './lib/components/form/ImgUpload'
 import * as AuthContext from './lib/contexts/AuthContext';
 import BooksAndNotesNotice from './lib/components/notices/booksAndNotes/create/BooksAndNotesNotice'
-import HouseAndHouseBody from './lib/components/notices/houseAndHouseBody/HouseAndHouseBody'
+import HouseAndHouseBody from './lib/components/notices/houseAndHouseBody/create/HouseAndHouseBody'
 import WorkAndInternship from './lib/components/notices/workAndInternship/WorkAndInternship'
 import SecondHands from './lib/components/notices/secondHands/create/SecondHandsNotice'
 import SecondHandNoticeCard from './lib/components/notices/secondHands/SecondHandNoticeCard'
@@ -26,6 +26,8 @@ import HighlightSecondHands from './lib/components/notices/secondHands/Highlight
 import WorkAndInternshipCard from './lib/components/notices/workAndInternship/WorkAndInternshipCard'
 import WorkAndInternshipDetailCard from './lib/components/notices/workAndInternship/WorkAndInternshipDetailCard'
 import HighlightWorkAndInternship from './lib/components/notices/workAndInternship/HighlightWorkAndInternship'
+import {HouseNotice} from './lib/components/notices/houseAndHouseBody/create/housenotice/HouseNotice'
+import {HouseBodyNotice} from './lib/components/notices/houseAndHouseBody/create/housebodynotice/HouseBodyNotice'
 
 
 export { Header }
@@ -56,3 +58,5 @@ export{HighlightSecondHands}
 export{WorkAndInternshipCard}
 export{WorkAndInternshipDetailCard}
 export{HighlightWorkAndInternship}
+export{HouseNotice}
+export{HouseBodyNotice}

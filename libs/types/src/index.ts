@@ -16,3 +16,5 @@ export * as Universities from './lib/universities'
 export * as WorksAndInternships from './lib/worksandinternship';
 export * as Sectors from './lib/sectors';
 export * as Companies from './lib/companies';
+export * as HouseAndHBody from './lib/housebody';
+export * as House from './lib/house';

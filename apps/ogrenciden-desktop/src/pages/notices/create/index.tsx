@@ -45,7 +45,7 @@ export const CreateNoticesContainer = (props:Props) =>{
            {showBooksAndNotes && <BooksAndNotesNotice cities={cities} universities={universities}/>}
             {showSecondHands && <SecondHandsNotice categories={categories} cities={cities} universities={universities}/>}
             {showWorkAndInternship && <WorkAndInternshipNotice sectors={sectors} cities={cities}/>}
-            {showHouseAndHouseBody && <HouseAndHouseBody />}
+            {showHouseAndHouseBody && <HouseAndHouseBody cities={cities}/>}
            </div>
            </div>
         </div>
@@ -124,6 +124,7 @@ const noticeCss = css`
 
 const typeCss = (active:boolean) => css`
     background:${active ? "#f5f5f5" :"#fffff"} ;
+    border-radius:20px;
     width:70%;
     padding:20px;
     text-align:center;
