@@ -32,7 +32,6 @@ export const Login = () => {
             toast.success("Giriş Başarılı", {
                 autoClose: 2000,
             });
-            //waiting close toast
             setTimeout(() => {
                 router.push("/")
             }, 2000);
