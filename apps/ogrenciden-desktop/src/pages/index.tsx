@@ -30,17 +30,17 @@ export function Index(props: Props) {
       <Carousel images={images} />
      <div css={highlightCss}>
      <div css={highlightRequests}>
-     <h1>Talepler</h1>
+     <h1 css={header}>Talepler</h1>
       <HighlightRequests  requests={requests}/>
       <a css={link} href="requests">Tümünü Gör</a>
      </div>
      <div css={highlightSecondHands}>
-      <h1>2.el Eşya İlanları</h1>
+      <h1 css={header}>2.el Eşya İlanları</h1>
       <HighlightSecondHands  secondHands={secondHands}/>
       <a css={link} href="notices">Tümünü Gör</a>
      </div>
      <div css={highlightSecondHands}>
-      <h1>İş Ve Staj İlanları</h1>
+      <h1 css={header}>İş Ve Staj İlanları</h1>
       <HighlightWorkAndInternship  worksAndInternships={worksAndInternships}/>
       <a css={link} href="notices">Tümünü Gör</a>
      </div>
@@ -89,6 +89,7 @@ const containerCSS = css`
   display: flex;
   flex-direction: column;
   gap: 30px;
+
 `
 
 const highlightCss = css`
@@ -103,6 +104,10 @@ const highlightCss = css`
     font-size: 2em;
     font-weight: bold;
   }
+`
+
+const header = css`
+ padding-left: 60px;
 `
 
 const link = css`
@@ -125,6 +130,8 @@ const highlightRequests = css`
   gap: 30px;
   align-items: center;
 `
+
+
 
 const highlightSecondHands = css`
   display: flex;

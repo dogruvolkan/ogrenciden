@@ -101,6 +101,7 @@ const searchCss = css`
 const requestContainerCss = css`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 `;
 
@@ -109,4 +110,5 @@ const requestCss = css`
   gap: 30px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 `;

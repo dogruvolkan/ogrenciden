@@ -85,6 +85,7 @@ const secondHandNoticeContainerCss = css`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 
   h1 {
     font-size: 2em;
@@ -97,6 +98,7 @@ const secondHandNoticeCss = css`
   gap: 30px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
